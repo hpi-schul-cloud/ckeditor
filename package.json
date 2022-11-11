@@ -1,6 +1,6 @@
 {
 	"name": "@hpi-schul-cloud/ckeditor",
-    "version": "0.1.3",
+    "version": "0.1.4",
 	"description": "Custom version of CKEditor5 for the Schulcloud-Verbund-Software-Client",
 	"author": "Dataport Schulcloud-Verbund-Software Team",
 	"repository": {
@@ -11,6 +11,9 @@
 	"scripts": {
 		"build": "webpack --mode production",
 		"serve": "npx http-server -o ./sample -s -c-1"
+	},
+	"publishConfig": {
+		"access": "public"
 	},
 	"main": "./build/ckeditor.js",
 	"devDependencies": {
