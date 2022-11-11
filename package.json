@@ -1,0 +1,7 @@
+{
+	"name": "@hpi-schul-cloud/ckeditor",
+    "version": "0.1.0",
+	"description": "Custom version of CKEditor5 for the Schulcloud-Verbund-Software-Client",
+	"author": "Dataport Schulcloud-Verbund-Software Team",
+    "license": "AGPL-3.0"
+}
