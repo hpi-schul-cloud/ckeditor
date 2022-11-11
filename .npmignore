@@ -1,2 +1,5 @@
+.github
+.gitattibutes
 src
 sample
+webpack.config.js
