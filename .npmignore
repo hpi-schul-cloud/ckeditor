@@ -1,5 +1,5 @@
 .github
-.gitattibutes
+.gitattributes
 src
 sample
 webpack.config.js
