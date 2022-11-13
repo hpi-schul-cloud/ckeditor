@@ -10,7 +10,6 @@ import List from "@ckeditor/ckeditor5-list/src/list.js";
 import Paragraph from "@ckeditor/ckeditor5-paragraph/src/paragraph.js";
 import Subscript from "@ckeditor/ckeditor5-basic-styles/src/subscript.js";
 import Superscript from "@ckeditor/ckeditor5-basic-styles/src/superscript.js";
-import TextTransformation from "@ckeditor/ckeditor5-typing/src/texttransformation.js";
 import Underline from "@ckeditor/ckeditor5-basic-styles/src/underline.js";
 
 
@@ -28,7 +27,6 @@ Editor.builtinPlugins = [
      Paragraph,
      Subscript,
      Superscript,
-     TextTransformation,
      Underline,
 ];
 
