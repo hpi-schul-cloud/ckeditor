@@ -2,25 +2,29 @@
 <html lang="de">
 	<head>
 		<meta charset="utf-8" />
-		<title>CKEditor 5 – Development Sample</title>
+		<title>CKEditor 5 – Editor preview</title>
 		<style>
 			body {
-				max-width: 800px;
+				max-width: 920px;
 				margin: 20px auto;
 			}
 		</style>
 	</head>
 	<body>
-		<h1>CKEditor 5 – Development</h1>
+		<h1>CKEditor 5 – Editor preview</h1>
 
-		<div id="editor">Initial content of editor</div>
+		<div id="editor">Initial <strong>content</strong> of <i>editor</i></div>
 
 		<script src="../build/ckeditor.js"></script>
 		<script>
-			console.log(CustomCKEditor.builtinPlugins.map( plugin => plugin.pluginName ));
-			CustomCKEditor.create(document.querySelector("#editor")).catch((error) => {
-				console.error(error);
-			});
+			console.log(
+				CustomCKEditor.builtinPlugins.map((plugin) => plugin.pluginName)
+			);
+			CustomCKEditor.create(document.querySelector("#editor")).catch(
+				(error) => {
+					console.error(error);
+				}
+			);
 		</script>
 	</body>
 </html>
