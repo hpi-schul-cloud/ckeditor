@@ -15,12 +15,19 @@ npm i @hpi-schul-cloud/ckeditor
 - Code
 - Essentials
 - Heading
+- Highlight
+- HorizontalLine
 - Italic
 - Link
 - List
 - Paragraph
+- RemoveFormat
+- SpecialCharacters
+- Strikethrough
 - Subscript
 - Superscript
+- Table
+- TableToolbar
 - Underline
 
 ## Supported languages
