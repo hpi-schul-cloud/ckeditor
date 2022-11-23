@@ -1,12 +1,12 @@
 {
 	"name": "@hpi-schul-cloud/ckeditor",
-    "version": "0.1.6",
+	"version": "0.1.6",
 	"description": "Custom version of CKEditor5 for the Schulcloud-Verbund-Software-Client",
 	"author": "Dataport Schulcloud-Verbund-Software Team",
 	"repository": {
 		"github": "https://github.com/hpi-schul-cloud/ckeditor"
 	},
-    "license": "AGPL-3.0",
+	"license": "AGPL-3.0",
 	"homepage": "https://github.com/hpi-schul-cloud/ckeditor",
 	"scripts": {
 		"build": "webpack --mode production",
@@ -20,18 +20,22 @@
 		"/build"
 	],
 	"devDependencies": {
-		"@ckeditor/ckeditor5-basic-styles": "^34.1.0",
-		"@ckeditor/ckeditor5-block-quote": "^34.1.0",
-		"@ckeditor/ckeditor5-dev-utils": "^30.4.0",
-		"@ckeditor/ckeditor5-dev-webpack-plugin": "^30.4.0",
-		"@ckeditor/ckeditor5-editor-classic": "^34.1.0",
-		"@ckeditor/ckeditor5-essentials": "^34.1.0",
-		"@ckeditor/ckeditor5-heading": "^34.1.0",
-		"@ckeditor/ckeditor5-link": "^34.1.0",
-		"@ckeditor/ckeditor5-list": "^34.1.0",
-		"@ckeditor/ckeditor5-paragraph": "^34.1.0",
-		"@ckeditor/ckeditor5-theme-lark": "^34.1.0",
-		"@ckeditor/ckeditor5-typing": "^34.1.0",
+		"@ckeditor/ckeditor5-basic-styles": "^35.3.2",
+		"@ckeditor/ckeditor5-block-quote": "^35.3.2",
+		"@ckeditor/ckeditor5-dev-utils": "^30.5.0",
+		"@ckeditor/ckeditor5-dev-webpack-plugin": "^30.5.0",
+		"@ckeditor/ckeditor5-editor-classic": "^35.3.2",
+		"@ckeditor/ckeditor5-essentials": "^35.3.2",
+		"@ckeditor/ckeditor5-heading": "^35.3.2",
+		"@ckeditor/ckeditor5-highlight": "^35.3.2",
+		"@ckeditor/ckeditor5-horizontal-line": "^35.3.2",
+		"@ckeditor/ckeditor5-link": "^35.3.2",
+		"@ckeditor/ckeditor5-list": "^35.3.2",
+		"@ckeditor/ckeditor5-paragraph": "^35.3.2",
+		"@ckeditor/ckeditor5-remove-format": "^35.3.2",
+		"@ckeditor/ckeditor5-special-characters": "^35.3.2",
+		"@ckeditor/ckeditor5-table": "^35.3.2",
+		"@ckeditor/ckeditor5-theme-lark": "^35.3.2",
 		"css-loader": "^5.2.7",
 		"postcss": "^8.4.16",
 		"postcss-loader": "^4.3.0",
@@ -40,5 +44,9 @@
 		"terser-webpack-plugin": "^4.2.3",
 		"webpack": "^5.74.0",
 		"webpack-cli": "^4.10.0"
+	},
+	"engines": {
+		"node": "16",
+		"npm": "8"
 	}
 }
