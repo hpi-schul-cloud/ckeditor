@@ -1,6 +1,6 @@
 "use strict";
 
- /* eslint-env node */
+/* eslint-env node */
 
 const path = require("path");
 const webpack = require("webpack");
@@ -9,80 +9,80 @@ const CKEditorWebpackPlugin = require("@ckeditor/ckeditor5-dev-webpack-plugin");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
 
 module.exports = {
-     devtool: "source-map",
-     performance: { hints: false },
+	devtool: "source-map",
+	performance: { hints: false },
 
-     entry: path.resolve(__dirname, "src", "ckeditor.js"),
+	entry: path.resolve(__dirname, "src", "ckeditor.js"),
 
-     output: {
-         library: "CustomCKEditor",
+	output: {
+		library: "CustomCKEditor",
 
-         path: path.resolve(__dirname, "build"),
-         filename: "ckeditor.js",
-         libraryTarget: "umd",
-         libraryExport: "default",
-     },
+		path: path.resolve(__dirname, "build"),
+		filename: "ckeditor.js",
+		libraryTarget: "umd",
+		libraryExport: "default",
+	},
 
-     optimization: {
-         minimizer: [
-             new TerserWebpackPlugin({
-                 sourceMap: true,
-                 terserOptions: {
-                     output: {
-                         // Preserve CKEditor 5 license comments.
-                         comments: /^!/,
-                     },
-                 },
-                 extractComments: false,
-             }),
-         ],
-     },
+	optimization: {
+		minimizer: [
+			new TerserWebpackPlugin({
+				sourceMap: true,
+				terserOptions: {
+					output: {
+						// Preserve CKEditor 5 license comments.
+						comments: /^!/,
+					},
+				},
+				extractComments: false,
+			}),
+		],
+	},
 
-     plugins: [
-         new CKEditorWebpackPlugin({
-             language: "de",
-             additionalLanguages: ["en", "es"],
-         }),
-         new webpack.BannerPlugin({
-             banner: bundler.getLicenseBanner(),
-             raw: true,
-         }),
-     ],
+	plugins: [
+		new CKEditorWebpackPlugin({
+			language: "de",
+			additionalLanguages: ["en", "es", "uk"],
+		}),
+		new webpack.BannerPlugin({
+			banner: bundler.getLicenseBanner(),
+			raw: true,
+		}),
+	],
 
-     module: {
-         rules: [
-             {
-                 test: /\.svg$/,
-                 use: ["raw-loader"],
-             },
-             {
-                 test: /\.css$/,
-                 use: [
-                     {
-                         loader: "style-loader",
-                         options: {
-                             injectType: "singletonStyleTag",
-                             attributes: {
-                                 "data-cke": true,
-                             },
-                         },
-                     },
-                     {
-                         loader: "css-loader",
-                     },
-                     {
-                         loader: "postcss-loader",
-                         options: {
-                             postcssOptions: styles.getPostCssConfig({
-                                 themeImporter: {
-                                     themePath: require.resolve("@ckeditor/ckeditor5-theme-lark"),
-                                 },
-                                 minify: true,
-                             }),
-                         },
-                     },
-                 ],
-             },
-         ],
-     },
- };
+	module: {
+		rules: [
+			{
+				test: /\.svg$/,
+				use: ["raw-loader"],
+			},
+			{
+				test: /\.css$/,
+				use: [
+					{
+						loader: "style-loader",
+						options: {
+							injectType: "singletonStyleTag",
+							attributes: {
+								"data-cke": true,
+							},
+						},
+					},
+					{
+						loader: "css-loader",
+					},
+					{
+						loader: "postcss-loader",
+						options: {
+							postcssOptions: styles.getPostCssConfig({
+								themeImporter: {
+									themePath: require.resolve("@ckeditor/ckeditor5-theme-lark"),
+								},
+								minify: true,
+							}),
+						},
+					},
+				],
+			},
+		],
+	},
+};
