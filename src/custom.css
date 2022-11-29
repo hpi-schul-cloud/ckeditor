@@ -1,0 +1,5 @@
+/* see https://github.com/ckeditor/ckeditor5/tree/master/packages/ckeditor5-theme-lark/theme/ckeditor5-ui/globals */
+:root {
+    /* Example: overrides the border radius setting in the theme. */
+    --ck-border-radius: 4px;
+}
