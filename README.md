@@ -35,3 +35,4 @@ npm i @hpi-schul-cloud/ckeditor
 - de
 - en
 - es
+- uk
