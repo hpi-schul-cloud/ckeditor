@@ -1,4 +1,4 @@
-import ClassicEditor from "@ckeditor/ckeditor5-editor-classic/src/classiceditor.js";
+import InlineEditor from "@ckeditor/ckeditor5-editor-inline/src/inlineeditor.js";
 import BlockQuote from "@ckeditor/ckeditor5-block-quote/src/blockquote.js";
 import Bold from "@ckeditor/ckeditor5-basic-styles/src/bold.js";
 import Code from "@ckeditor/ckeditor5-basic-styles/src/code.js";
@@ -23,7 +23,7 @@ import Underline from "@ckeditor/ckeditor5-basic-styles/src/underline.js";
 import "./custom.css";
 import "./content-styles.css";
 
-class Editor extends ClassicEditor {}
+class Editor extends InlineEditor {}
 
 Editor.builtinPlugins = [
 	BlockQuote,
