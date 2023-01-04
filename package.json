@@ -20,6 +20,7 @@
 		"/build"
 	],
 	"devDependencies": {
+		"@ckeditor/ckeditor5-autoformat": "^35.4.0",
 		"@ckeditor/ckeditor5-basic-styles": "^35.3.2",
 		"@ckeditor/ckeditor5-block-quote": "^35.3.2",
 		"@ckeditor/ckeditor5-dev-utils": "^30.5.0",
