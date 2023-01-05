@@ -1,4 +1,5 @@
 import InlineEditor from "@ckeditor/ckeditor5-editor-inline/src/inlineeditor.js";
+import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
 import BlockQuote from "@ckeditor/ckeditor5-block-quote/src/blockquote.js";
 import Bold from "@ckeditor/ckeditor5-basic-styles/src/bold.js";
 import Code from "@ckeditor/ckeditor5-basic-styles/src/code.js";
@@ -26,6 +27,7 @@ import "./content-styles.css";
 class Editor extends InlineEditor {}
 
 Editor.builtinPlugins = [
+	Autoformat,
 	BlockQuote,
 	Bold,
 	Code,
