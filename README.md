@@ -10,6 +10,7 @@ npm i @hpi-schul-cloud/ckeditor
 
 ## Built-in plugins
 
+- AutoFormat
 - BlockQuote
 - Bold
 - Code
@@ -20,6 +21,7 @@ npm i @hpi-schul-cloud/ckeditor
 - Italic
 - Link
 - List
+- Math
 - Paragraph
 - RemoveFormat
 - SpecialCharacters
