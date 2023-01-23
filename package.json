@@ -37,6 +37,7 @@
 		"@ckeditor/ckeditor5-special-characters": "^35.3.2",
 		"@ckeditor/ckeditor5-table": "^35.3.2",
 		"@ckeditor/ckeditor5-theme-lark": "^35.3.2",
+		"ckeditor5-math": "^35.4.0",
 		"css-loader": "^5.2.7",
 		"postcss": "^8.4.16",
 		"postcss-loader": "^4.3.0",
