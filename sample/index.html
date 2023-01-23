@@ -25,7 +25,13 @@
 			<mark class="marker-yellow">editor</mark>
 		</div>
 
+		<h2>Formula rendering from markup</h2>
+		<div id="formulas">
+			<span class="math-tex">\(x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\)</span>
+		</div>
+
 		<script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"></script>
+    	<script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"></script>
 		<script src="../build/ckeditor.js"></script>
 		<script>
 			console.log(
@@ -36,6 +42,9 @@
 					console.error(error);
 				}
 			);
+
+			const preview = document.getElementById('formulas');
+       	 	renderMathInElement(preview);
 		</script>
 	</body>
 </html>
