@@ -10,6 +10,7 @@ import HorizontalLine from "@ckeditor/ckeditor5-horizontal-line/src/horizontalli
 import Italic from "@ckeditor/ckeditor5-basic-styles/src/italic.js";
 import Link from "@ckeditor/ckeditor5-link/src/link.js";
 import List from "@ckeditor/ckeditor5-list/src/list.js";
+import Mathematics from 'ckeditor5-math/src/math';
 import Paragraph from "@ckeditor/ckeditor5-paragraph/src/paragraph.js";
 import RemoveFormat from "@ckeditor/ckeditor5-remove-format/src/removeformat";
 import SpecialCharacters from "@ckeditor/ckeditor5-special-characters/src/specialcharacters.js";
@@ -38,6 +39,7 @@ Editor.builtinPlugins = [
 	Italic,
 	Link,
 	List,
+	Mathematics,
 	Paragraph,
 	RemoveFormat,
 	SpecialCharacters,
@@ -70,6 +72,7 @@ Editor.defaultConfig = {
 			"link",
 			"bulletedList",
 			"numberedList",
+			"math",
 			"horizontalLine",
 			"|",
 			"blockQuote",
@@ -81,6 +84,12 @@ Editor.defaultConfig = {
 	language: "de",
 	table: {
 		contentToolbar: ["tableColumn", "tableRow", "mergeTableCells"],
+	},
+	math: {
+		engine: 'katex',
+		outputType: 'span',
+		forceOutputType: true,
+		enablePreview: true,
 	},
 };
 
