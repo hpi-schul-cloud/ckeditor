@@ -1,4 +1,5 @@
 import InlineEditor from "@ckeditor/ckeditor5-editor-inline/src/inlineeditor.js";
+import { add } from "@ckeditor/ckeditor5-utils/src/translation-service.js";
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
 import BlockQuote from "@ckeditor/ckeditor5-block-quote/src/blockquote.js";
 import Bold from "@ckeditor/ckeditor5-basic-styles/src/bold.js";
@@ -92,5 +93,10 @@ Editor.defaultConfig = {
 		enablePreview: true,
 	},
 };
+
+add( 'de', {
+    'Equation preview': "Formel Vorschau"
+} );
+
 
 export default Editor;
