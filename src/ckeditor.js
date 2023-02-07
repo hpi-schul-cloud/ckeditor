@@ -1,5 +1,4 @@
 import InlineEditor from "@ckeditor/ckeditor5-editor-inline/src/inlineeditor.js";
-import { add } from "@ckeditor/ckeditor5-utils/src/translation-service.js";
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
 import BlockQuote from "@ckeditor/ckeditor5-block-quote/src/blockquote.js";
 import Bold from "@ckeditor/ckeditor5-basic-styles/src/bold.js";
@@ -22,6 +21,11 @@ import Superscript from "@ckeditor/ckeditor5-basic-styles/src/superscript.js";
 import Table from "@ckeditor/ckeditor5-table/src/table.js";
 import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar.js";
 import Underline from "@ckeditor/ckeditor5-basic-styles/src/underline.js";
+import addMissingTranslationsDe from "./locales/de";
+import addMissingTranslationsEn from "./locales/en";
+import addMissingTranslationsEs from "./locales/es";
+import addMissingTranslationsUk from "./locales/uk";
+
 
 import "./custom.css";
 import "./content-styles.css";
@@ -94,9 +98,9 @@ Editor.defaultConfig = {
 	},
 };
 
-add( 'de', {
-    'Equation preview': "Formel Vorschau"
-} );
-
+addMissingTranslationsDe();
+addMissingTranslationsEn();
+addMissingTranslationsEs();
+addMissingTranslationsUk();
 
 export default Editor;
