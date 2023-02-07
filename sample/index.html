@@ -33,15 +33,20 @@
 		<script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"></script>
     	<script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"></script>
 		<script src="../build/ckeditor.js"></script>
+		<script src="../build/translations/en.js"></script>
+		<script src="../build/translations/es.js"></script>
+		<script src="../build/translations/uk.js"></script>
 		<script>
 			console.log(
 				CustomCKEditor.builtinPlugins.map((plugin) => plugin.pluginName)
 			);
-			CustomCKEditor.create(document.querySelector("#editor")).catch(
-				(error) => {
+			CustomCKEditor
+				.create(document.querySelector("#editor"), {
+					language: "de"
+				}).
+				catch(error => {
 					console.error(error);
-				}
-			);
+				});
 
 			const preview = document.getElementById('formulas');
        	 	renderMathInElement(preview);
