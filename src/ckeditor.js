@@ -21,6 +21,11 @@ import Superscript from "@ckeditor/ckeditor5-basic-styles/src/superscript.js";
 import Table from "@ckeditor/ckeditor5-table/src/table.js";
 import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar.js";
 import Underline from "@ckeditor/ckeditor5-basic-styles/src/underline.js";
+import addMissingTranslationsDe from "./locales/de";
+import addMissingTranslationsEn from "./locales/en";
+import addMissingTranslationsEs from "./locales/es";
+import addMissingTranslationsUk from "./locales/uk";
+
 
 import "./custom.css";
 import "./content-styles.css";
@@ -92,5 +97,10 @@ Editor.defaultConfig = {
 		enablePreview: true,
 	},
 };
+
+addMissingTranslationsDe();
+addMissingTranslationsEn();
+addMissingTranslationsEs();
+addMissingTranslationsUk();
 
 export default Editor;
