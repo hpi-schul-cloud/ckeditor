@@ -1,5 +1,5 @@
-import InlineEditor from "@ckeditor/ckeditor5-editor-inline/src/inlineeditor.js";
-import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
+import BalloonEditor from "@ckeditor/ckeditor5-editor-balloon/src/ballooneditor.js";
+import Autoformat from "@ckeditor/ckeditor5-autoformat/src/autoformat";
 import BlockQuote from "@ckeditor/ckeditor5-block-quote/src/blockquote.js";
 import Bold from "@ckeditor/ckeditor5-basic-styles/src/bold.js";
 import Code from "@ckeditor/ckeditor5-basic-styles/src/code.js";
@@ -10,7 +10,7 @@ import HorizontalLine from "@ckeditor/ckeditor5-horizontal-line/src/horizontalli
 import Italic from "@ckeditor/ckeditor5-basic-styles/src/italic.js";
 import Link from "@ckeditor/ckeditor5-link/src/link.js";
 import List from "@ckeditor/ckeditor5-list/src/list.js";
-import Mathematics from 'ckeditor5-math/src/math';
+import Mathematics from "ckeditor5-math/src/math";
 import Paragraph from "@ckeditor/ckeditor5-paragraph/src/paragraph.js";
 import RemoveFormat from "@ckeditor/ckeditor5-remove-format/src/removeformat";
 import SpecialCharacters from "@ckeditor/ckeditor5-special-characters/src/specialcharacters.js";
@@ -26,11 +26,10 @@ import addMissingTranslationsEn from "./locales/en";
 import addMissingTranslationsEs from "./locales/es";
 import addMissingTranslationsUk from "./locales/uk";
 
-
 import "./custom.css";
 import "./content-styles.css";
 
-class Editor extends InlineEditor {}
+class Editor extends BalloonEditor {}
 
 Editor.builtinPlugins = [
 	Autoformat,
@@ -91,8 +90,8 @@ Editor.defaultConfig = {
 		contentToolbar: ["tableColumn", "tableRow", "mergeTableCells"],
 	},
 	math: {
-		engine: 'katex',
-		outputType: 'span',
+		engine: "katex",
+		outputType: "span",
 		forceOutputType: true,
 		enablePreview: true,
 	},

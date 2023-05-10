@@ -25,7 +25,7 @@
 		"@ckeditor/ckeditor5-block-quote": "^35.3.2",
 		"@ckeditor/ckeditor5-dev-utils": "^30.5.0",
 		"@ckeditor/ckeditor5-dev-webpack-plugin": "^30.5.0",
-		"@ckeditor/ckeditor5-editor-inline": "^35.3.2",
+		"@ckeditor/ckeditor5-editor-balloon": "^35.3.2",
 		"@ckeditor/ckeditor5-essentials": "^35.3.2",
 		"@ckeditor/ckeditor5-heading": "^35.3.2",
 		"@ckeditor/ckeditor5-highlight": "^35.3.2",
