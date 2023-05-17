@@ -9,20 +9,25 @@
 				margin: 20px auto;
 			}
 		</style>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+		/>
+		<link rel="stylesheet" href="../build/ckeditor.css" />
 	</head>
 	<body>
 		<h2>CKEditor 5 – edit</h2>
 
 		<div id="editor">
 			Initial <strong>content</strong> of
-			<mark class="marker-yellow">editor</mark>
+			<mark class="marker-blue">editor</mark>
 		</div>
 
 		<h2>CKEditor 5 – view</h2>
-		<div id="view" class="ck-editor">
+		<div id="view" class="ck-content">
 			Initial <strong>content</strong> of
-			<mark class="marker-yellow">editor</mark>
+			<mark class="marker-blue">editor</mark>
+			<code>code</code>
 		</div>
 
 		<h2>Formula rendering from markup</h2>
@@ -31,7 +36,7 @@
 		</div>
 
 		<script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"></script>
-    	<script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"></script>
 		<script src="../build/ckeditor.js"></script>
 		<script src="../build/translations/en.js"></script>
 		<script src="../build/translations/es.js"></script>
@@ -40,16 +45,14 @@
 			console.log(
 				CustomCKEditor.builtinPlugins.map((plugin) => plugin.pluginName)
 			);
-			CustomCKEditor
-				.create(document.querySelector("#editor"), {
-					language: "de"
-				}).
-				catch(error => {
-					console.error(error);
-				});
+			CustomCKEditor.create(document.querySelector("#editor"), {
+				language: "de",
+			}).catch((error) => {
+				console.error(error);
+			});
 
-			const preview = document.getElementById('formulas');
-       	 	renderMathInElement(preview);
+			const preview = document.getElementById("formulas");
+			renderMathInElement(preview);
 		</script>
 	</body>
 </html>
