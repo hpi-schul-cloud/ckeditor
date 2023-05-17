@@ -9,6 +9,7 @@ const {
 	CKEditorTranslationsPlugin,
 } = require("@ckeditor/ckeditor5-dev-translations");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
 	devtool: "source-map",
@@ -49,6 +50,9 @@ module.exports = {
 			banner: bundler.getLicenseBanner(),
 			raw: true,
 		}),
+		new MiniCssExtractPlugin({
+			filename: "ckeditor.css",
+		}),
 	],
 
 	module: {
@@ -60,18 +64,8 @@ module.exports = {
 			{
 				test: /\.css$/,
 				use: [
-					{
-						loader: "style-loader",
-						options: {
-							injectType: "singletonStyleTag",
-							attributes: {
-								"data-cke": true,
-							},
-						},
-					},
-					{
-						loader: "css-loader",
-					},
+					MiniCssExtractPlugin.loader,
+					"css-loader",
 					{
 						loader: "postcss-loader",
 						options: {

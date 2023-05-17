@@ -43,6 +43,7 @@
 		"css-loader": "^5.2.7",
 		"postcss": "^8.4.22",
 		"postcss-loader": "^4.3.0",
+		"mini-css-extract-plugin": "^2.7.5",
 		"raw-loader": "^4.0.2",
 		"style-loader": "^2.0.0",
 		"terser-webpack-plugin": "^4.2.3",
