@@ -39,6 +39,7 @@
 		"@ckeditor/ckeditor5-table": "^37.1.0",
 		"@ckeditor/ckeditor5-theme-lark": "^37.1.0",
 		"@ckeditor/ckeditor5-typing": "^37.1.0",
+		"@ckeditor/ckeditor5-word-count": "^37.1.0",
 		"@isaul32/ckeditor5-math": "^37.1.0",
 		"css-loader": "^5.2.7",
 		"postcss": "^8.4.22",
