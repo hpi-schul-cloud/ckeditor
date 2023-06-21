@@ -32,6 +32,7 @@ npm i @hpi-schul-cloud/ckeditor
 - Table
 - TableToolbar
 - Underline
+- WordCount
 
 ## Supported languages
 

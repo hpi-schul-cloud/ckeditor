@@ -22,13 +22,15 @@ import Superscript from "@ckeditor/ckeditor5-basic-styles/src/superscript.js";
 import Table from "@ckeditor/ckeditor5-table/src/table.js";
 import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar.js";
 import Underline from "@ckeditor/ckeditor5-basic-styles/src/underline.js";
+import WordCount from "@ckeditor/ckeditor5-word-count/src/wordcount.js";
 import addMissingTranslationsDe from "./locales/de";
 import addMissingTranslationsEn from "./locales/en";
 import addMissingTranslationsEs from "./locales/es";
 import addMissingTranslationsUk from "./locales/uk";
 
-import "./custom.css";
+import "./variables.css";
 import "./content-styles.css";
+import "./custom-content-styles.css";
 
 class Editor extends BalloonEditor {}
 
@@ -56,6 +58,7 @@ Editor.builtinPlugins = [
 	Table,
 	TableToolbar,
 	Underline,
+	WordCount,
 ];
 
 Editor.defaultConfig = {
