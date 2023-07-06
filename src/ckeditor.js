@@ -4,7 +4,6 @@ import BlockQuote from "@ckeditor/ckeditor5-block-quote/src/blockquote.js";
 import Bold from "@ckeditor/ckeditor5-basic-styles/src/bold.js";
 import Code from "@ckeditor/ckeditor5-basic-styles/src/code.js";
 import Essentials from "@ckeditor/ckeditor5-essentials/src/essentials.js";
-import FontBackgroundColor from "@ckeditor/ckeditor5-font/src/font.js";
 import Heading from "@ckeditor/ckeditor5-heading/src/heading.js";
 import Highlight from "@ckeditor/ckeditor5-highlight/src/highlight.js";
 import HorizontalLine from "@ckeditor/ckeditor5-horizontal-line/src/horizontalline.js";
@@ -40,7 +39,6 @@ Editor.builtinPlugins = [
 	Bold,
 	Code,
 	Essentials,
-	FontBackgroundColor,
 	Heading,
 	Highlight,
 	HorizontalLine,
@@ -74,7 +72,6 @@ Editor.defaultConfig = {
 			"underline",
 			"strikethrough",
 			"highlight",
-			"fontBackgroundColor",
 			"code",
 			"superscript",
 			"subscript",

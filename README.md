@@ -15,7 +15,6 @@ npm i @hpi-schul-cloud/ckeditor
 - Bold
 - Code
 - Essentials
-- FontBackgroundColor
 - Heading
 - Highlight
 - HorizontalLine
