@@ -30,7 +30,6 @@ npm i @hpi-schul-cloud/ckeditor
 - Superscript
 - Table
 - TableToolbar
-- Underline
 - WordCount
 
 ## Supported languages
