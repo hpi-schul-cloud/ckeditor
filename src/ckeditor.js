@@ -4,7 +4,6 @@ import BlockQuote from "@ckeditor/ckeditor5-block-quote/src/blockquote.js";
 import Bold from "@ckeditor/ckeditor5-basic-styles/src/bold.js";
 import Code from "@ckeditor/ckeditor5-basic-styles/src/code.js";
 import Essentials from "@ckeditor/ckeditor5-essentials/src/essentials.js";
-import FontBackgroundColor from "@ckeditor/ckeditor5-font/src/font.js";
 import Heading from "@ckeditor/ckeditor5-heading/src/heading.js";
 import Highlight from "@ckeditor/ckeditor5-highlight/src/highlight.js";
 import HorizontalLine from "@ckeditor/ckeditor5-horizontal-line/src/horizontalline.js";
@@ -21,7 +20,6 @@ import Subscript from "@ckeditor/ckeditor5-basic-styles/src/subscript.js";
 import Superscript from "@ckeditor/ckeditor5-basic-styles/src/superscript.js";
 import Table from "@ckeditor/ckeditor5-table/src/table.js";
 import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar.js";
-import Underline from "@ckeditor/ckeditor5-basic-styles/src/underline.js";
 import WordCount from "@ckeditor/ckeditor5-word-count/src/wordcount.js";
 import addMissingTranslationsDe from "./locales/de";
 import addMissingTranslationsEn from "./locales/en";
@@ -40,7 +38,6 @@ Editor.builtinPlugins = [
 	Bold,
 	Code,
 	Essentials,
-	FontBackgroundColor,
 	Heading,
 	Highlight,
 	HorizontalLine,
@@ -57,7 +54,6 @@ Editor.builtinPlugins = [
 	Superscript,
 	Table,
 	TableToolbar,
-	Underline,
 	WordCount,
 ];
 
@@ -71,10 +67,8 @@ Editor.defaultConfig = {
 			"|",
 			"bold",
 			"italic",
-			"underline",
 			"strikethrough",
 			"highlight",
-			"fontBackgroundColor",
 			"code",
 			"superscript",
 			"subscript",

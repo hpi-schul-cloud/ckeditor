@@ -15,7 +15,6 @@ npm i @hpi-schul-cloud/ckeditor
 - Bold
 - Code
 - Essentials
-- FontBackgroundColor
 - Heading
 - Highlight
 - HorizontalLine
@@ -31,7 +30,6 @@ npm i @hpi-schul-cloud/ckeditor
 - Superscript
 - Table
 - TableToolbar
-- Underline
 - WordCount
 
 ## Supported languages

@@ -1,6 +1,6 @@
 {
 	"name": "@hpi-schul-cloud/ckeditor",
-	"version": "0.3.3",
+	"version": "0.4.0",
 	"description": "Custom version of CKEditor5 for the Schulcloud-Verbund-Software-Client",
 	"author": "Dataport Schulcloud-Verbund-Software Team",
 	"repository": {
@@ -27,7 +27,6 @@
 		"@ckeditor/ckeditor5-dev-utils": "^32.1.2",
 		"@ckeditor/ckeditor5-editor-balloon": "^37.1.0",
 		"@ckeditor/ckeditor5-essentials": "^37.1.0",
-		"@ckeditor/ckeditor5-font": "^37.1.0",
 		"@ckeditor/ckeditor5-heading": "^37.1.0",
 		"@ckeditor/ckeditor5-highlight": "^37.1.0",
 		"@ckeditor/ckeditor5-horizontal-line": "^37.1.0",
@@ -42,9 +41,9 @@
 		"@ckeditor/ckeditor5-word-count": "^37.1.0",
 		"@isaul32/ckeditor5-math": "^37.1.0",
 		"css-loader": "^5.2.7",
+		"mini-css-extract-plugin": "^2.7.5",
 		"postcss": "^8.4.22",
 		"postcss-loader": "^4.3.0",
-		"mini-css-extract-plugin": "^2.7.5",
 		"raw-loader": "^4.0.2",
 		"style-loader": "^2.0.0",
 		"terser-webpack-plugin": "^4.2.3",
