@@ -2,7 +2,7 @@
 <html lang="de">
 	<head>
 		<meta charset="utf-8" />
-		<title>CKEditor 5 – Editor preview</title>
+		<title>CKEditor5 – Editor preview</title>
 		<style>
 			body {
 				max-width: 920px;
@@ -16,14 +16,21 @@
 		<link rel="stylesheet" href="../build/ckeditor.css" />
 	</head>
 	<body>
-		<h2>CKEditor 5 – edit</h2>
+		<h1>CKEditor5 – Editor preview</h1>
 
-		<div id="editor">
+		<h2>Classic toolbar (de Version)</h2>
+		<div id="classiceditor">
 			Initial <strong>content</strong> of
 			<mark class="marker-blue">editor</mark>
 		</div>
 
-		<h2>CKEditor 5 – view</h2>
+		<h2>Balloon toolbar (en Version)</h2>
+		<div id="ballooneditor">
+			Initial <strong>content</strong> of
+			<mark class="marker-blue">editor</mark>
+		</div>
+
+		<h2>CK content view</h2>
 		<div id="view" class="ck-content">
 			Initial <strong>content</strong> of
 			<mark class="marker-blue">editor</mark>
@@ -43,11 +50,25 @@
 		<script src="../build/translations/uk.js"></script>
 		<script>
 			console.log(
-				CustomCKEditor.builtinPlugins.map((plugin) => plugin.pluginName)
+				CustomCKEditor.ClassicEditor.builtinPlugins.map(
+					(plugin) => plugin.pluginName
+				)
 			);
-			CustomCKEditor.create(document.querySelector("#editor"), {
-				language: "de",
-			}).catch((error) => {
+			CustomCKEditor.ClassicEditor.create(
+				document.querySelector("#classiceditor"),
+				{
+					language: "de",
+				}
+			).catch((error) => {
+				console.error(error);
+			});
+
+			CustomCKEditor.BalloonEditor.create(
+				document.querySelector("#ballooneditor"),
+				{
+					language: "en",
+				}
+			).catch((error) => {
 				console.error(error);
 			});
 
