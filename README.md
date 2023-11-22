@@ -8,6 +8,11 @@ Custom version of CKEditor5 for the Schulcloud-Verbund-Software-Client
 npm i @hpi-schul-cloud/ckeditor
 ```
 
+## Supported editor modes
+
+- classic toolbar
+- balloon toolbar
+
 ## Built-in plugins
 
 - AutoFormat
@@ -18,6 +23,8 @@ npm i @hpi-schul-cloud/ckeditor
 - Heading
 - Highlight
 - HorizontalLine
+- Image
+- ImageInsertViaUrl
 - Italic
 - Link
 - List
@@ -31,6 +38,8 @@ npm i @hpi-schul-cloud/ckeditor
 - Table
 - TableToolbar
 - WordCount
+
+Note: the included image plugins only support an image insertion via URL, not via upload
 
 ## Supported languages
 
