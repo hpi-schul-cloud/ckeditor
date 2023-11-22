@@ -1,4 +1,5 @@
-import BalloonEditor from "@ckeditor/ckeditor5-editor-balloon/src/ballooneditor.js";
+import { BalloonEditor as BalloonEditorBase } from "@ckeditor/ckeditor5-editor-balloon";
+import { ClassicEditor as ClassicEditorBase } from "@ckeditor/ckeditor5-editor-classic";
 import Autoformat from "@ckeditor/ckeditor5-autoformat/src/autoformat";
 import BlockQuote from "@ckeditor/ckeditor5-block-quote/src/blockquote.js";
 import Bold from "@ckeditor/ckeditor5-basic-styles/src/bold.js";
@@ -30,9 +31,10 @@ import "./variables.css";
 import "./content-styles.css";
 import "./custom-content-styles.css";
 
-class Editor extends BalloonEditor {}
+class BalloonEditor extends BalloonEditorBase {}
+class ClassicEditor extends ClassicEditorBase {}
 
-Editor.builtinPlugins = [
+const plugins = [
 	Autoformat,
 	BlockQuote,
 	Bold,
@@ -57,7 +59,7 @@ Editor.builtinPlugins = [
 	WordCount,
 ];
 
-Editor.defaultConfig = {
+const config = {
 	toolbar: {
 		items: [
 			"undo",
@@ -97,9 +99,15 @@ Editor.defaultConfig = {
 	},
 };
 
+BalloonEditor.builtinPlugins = plugins;
+ClassicEditor.builtinPlugins = plugins;
+
+BalloonEditor.defaultConfig = config;
+ClassicEditor.defaultConfig = config;
+
 addMissingTranslationsDe();
 addMissingTranslationsEn();
 addMissingTranslationsEs();
 addMissingTranslationsUk();
 
-export default Editor;
+export default { BalloonEditor, ClassicEditor };
