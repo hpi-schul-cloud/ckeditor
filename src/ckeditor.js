@@ -8,6 +8,8 @@ import Essentials from "@ckeditor/ckeditor5-essentials/src/essentials.js";
 import Heading from "@ckeditor/ckeditor5-heading/src/heading.js";
 import Highlight from "@ckeditor/ckeditor5-highlight/src/highlight.js";
 import HorizontalLine from "@ckeditor/ckeditor5-horizontal-line/src/horizontalline.js";
+import { Image } from "@ckeditor/ckeditor5-image";
+import ImageInsertViaUrl from "@ckeditor/ckeditor5-image/src/imageinsertviaurl.js";
 import Italic from "@ckeditor/ckeditor5-basic-styles/src/italic.js";
 import Link from "@ckeditor/ckeditor5-link/src/link.js";
 import List from "@ckeditor/ckeditor5-list/src/list.js";
@@ -43,6 +45,8 @@ const plugins = [
 	Heading,
 	Highlight,
 	HorizontalLine,
+	Image,
+	ImageInsertViaUrl,
 	Italic,
 	Link,
 	List,
@@ -76,6 +80,7 @@ const config = {
 			"subscript",
 			"|",
 			"link",
+			"insertImage",
 			"bulletedList",
 			"numberedList",
 			"math",
