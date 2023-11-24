@@ -1,4 +1,5 @@
-import BalloonEditor from "@ckeditor/ckeditor5-editor-balloon/src/ballooneditor.js";
+import { BalloonEditor as BalloonEditorBase } from "@ckeditor/ckeditor5-editor-balloon";
+import { ClassicEditor as ClassicEditorBase } from "@ckeditor/ckeditor5-editor-classic";
 import Autoformat from "@ckeditor/ckeditor5-autoformat/src/autoformat";
 import BlockQuote from "@ckeditor/ckeditor5-block-quote/src/blockquote.js";
 import Bold from "@ckeditor/ckeditor5-basic-styles/src/bold.js";
@@ -7,6 +8,8 @@ import Essentials from "@ckeditor/ckeditor5-essentials/src/essentials.js";
 import Heading from "@ckeditor/ckeditor5-heading/src/heading.js";
 import Highlight from "@ckeditor/ckeditor5-highlight/src/highlight.js";
 import HorizontalLine from "@ckeditor/ckeditor5-horizontal-line/src/horizontalline.js";
+import { Image } from "@ckeditor/ckeditor5-image";
+import ImageInsertViaUrl from "@ckeditor/ckeditor5-image/src/imageinsertviaurl.js";
 import Italic from "@ckeditor/ckeditor5-basic-styles/src/italic.js";
 import Link from "@ckeditor/ckeditor5-link/src/link.js";
 import List from "@ckeditor/ckeditor5-list/src/list.js";
@@ -30,9 +33,10 @@ import "./variables.css";
 import "./content-styles.css";
 import "./custom-content-styles.css";
 
-class Editor extends BalloonEditor {}
+class BalloonEditor extends BalloonEditorBase {}
+class ClassicEditor extends ClassicEditorBase {}
 
-Editor.builtinPlugins = [
+const plugins = [
 	Autoformat,
 	BlockQuote,
 	Bold,
@@ -41,6 +45,8 @@ Editor.builtinPlugins = [
 	Heading,
 	Highlight,
 	HorizontalLine,
+	Image,
+	ImageInsertViaUrl,
 	Italic,
 	Link,
 	List,
@@ -57,7 +63,7 @@ Editor.builtinPlugins = [
 	WordCount,
 ];
 
-Editor.defaultConfig = {
+const config = {
 	toolbar: {
 		items: [
 			"undo",
@@ -74,6 +80,7 @@ Editor.defaultConfig = {
 			"subscript",
 			"|",
 			"link",
+			"insertImage",
 			"bulletedList",
 			"numberedList",
 			"math",
@@ -97,9 +104,15 @@ Editor.defaultConfig = {
 	},
 };
 
+BalloonEditor.builtinPlugins = plugins;
+ClassicEditor.builtinPlugins = plugins;
+
+BalloonEditor.defaultConfig = config;
+ClassicEditor.defaultConfig = config;
+
 addMissingTranslationsDe();
 addMissingTranslationsEn();
 addMissingTranslationsEs();
 addMissingTranslationsUk();
 
-export default Editor;
+export default { BalloonEditor, ClassicEditor };
