@@ -58,7 +58,7 @@ jobs:
         run: npm run build
 
       - name: Set package version dynamically
-        run: npm version --no-git-tag-version "1.0.0-${{ needs.branch_meta.outputs.sha }}"
+        run: npm version --no-git-tag-version "0.0.1-${{ needs.branch_meta.outputs.sha }}"
 
       - name: Authenticate with GitHub Packages
         run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
