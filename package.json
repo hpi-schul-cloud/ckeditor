@@ -29,7 +29,6 @@
 		"@ckeditor/ckeditor5-editor-classic": "^37.1.0",
 		"@ckeditor/ckeditor5-editor-inline": "^37.1.0",
 		"@ckeditor/ckeditor5-essentials": "^37.1.0",
-		"@ckeditor/ckeditor5-font": "^37.1.0",
 		"@ckeditor/ckeditor5-heading": "^37.1.0",
 		"@ckeditor/ckeditor5-highlight": "^37.1.0",
 		"@ckeditor/ckeditor5-horizontal-line": "^37.1.0",
