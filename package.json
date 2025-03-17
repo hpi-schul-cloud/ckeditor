@@ -16,7 +16,9 @@
 		"access": "public"
 	},
 	"main": "./build/ckeditor.js",
-	"files": [],
+	"files": [
+		"/build"
+	],
 	"devDependencies": {
 		"@ckeditor/ckeditor5-autoformat": "^37.1.0",
 		"@ckeditor/ckeditor5-basic-styles": "^37.1.0",
