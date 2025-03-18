@@ -104,6 +104,32 @@ const config = {
 		forceOutputType: true,
 		enablePreview: true,
 	},
+	fontColor: {
+		colors: [
+			{ color: "#827717", label: "Olive green" },
+			{ color: "#388E3C", label: "Green" },
+			{ color: "#00838F", label: "Cyan" },
+			{ color: "#1976D2", label: "Blue" },
+			{ color: "#3F51B5", label: "Indigo" },
+			{ color: "#673AB7", label: "Deep Purple" },
+			{ color: "#9C27B0", label: "Purple" },
+			{ color: "#D81B60", label: "Pink" },
+			{ color: "#D32F2F", label: "Red" },
+		],
+	},
+	fontBackgroundColor: {
+		colors: [
+			{ color: "#DCEDC8", label: "Light green" },
+			{ color: "#C8E6C9", label: "Green" },
+			{ color: "#B2EBF2", label: "Cyan" },
+			{ color: "#BBDEFB", label: "Blue" },
+			{ color: "#C5CAE9", label: "Indigo" },
+			{ color: "#E1BEE7", label: "Purple" },
+			{ color: "#F8BBD0", label: "Pink" },
+			{ color: "#FFCCBC", label: "Orange" },
+			{ color: "#FFECB3", label: "Amber" },
+		],
+	},
 };
 
 BalloonEditor.builtinPlugins = plugins;
