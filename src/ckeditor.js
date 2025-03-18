@@ -3,6 +3,7 @@ import { ClassicEditor as ClassicEditorBase } from "@ckeditor/ckeditor5-editor-c
 import { InlineEditor as InlineEditorBase } from "@ckeditor/ckeditor5-editor-inline";
 import Autoformat from "@ckeditor/ckeditor5-autoformat/src/autoformat";
 import Bold from "@ckeditor/ckeditor5-basic-styles/src/bold.js";
+import { Clipboard } from "@ckeditor/ckeditor5-clipboard";
 import Essentials from "@ckeditor/ckeditor5-essentials/src/essentials.js";
 import FontBackgroundColor from "@ckeditor/ckeditor5-font/src/fontbackgroundcolor.js";
 import FontColor from "@ckeditor/ckeditor5-font/src/fontcolor.js";
@@ -41,6 +42,7 @@ class InlineEditor extends InlineEditorBase {}
 const plugins = [
 	Autoformat,
 	Bold,
+	Clipboard,
 	Essentials,
 	FontBackgroundColor,
 	FontColor,
@@ -91,6 +93,7 @@ const config = {
 			"|",
 			"insertTable",
 			"specialCharacters",
+			"clipboard",
 			"removeFormat",
 		],
 	},
