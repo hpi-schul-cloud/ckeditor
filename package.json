@@ -22,7 +22,6 @@
 	"devDependencies": {
 		"@ckeditor/ckeditor5-autoformat": "^37.1.0",
 		"@ckeditor/ckeditor5-basic-styles": "^37.1.0",
-		"@ckeditor/ckeditor5-clipboard": "^37.1.0",
 		"@ckeditor/ckeditor5-dev-translations": "^32.1.2",
 		"@ckeditor/ckeditor5-dev-utils": "^32.1.2",
 		"@ckeditor/ckeditor5-editor-balloon": "^37.1.0",
