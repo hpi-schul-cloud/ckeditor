@@ -30,7 +30,7 @@
 			<mark class="marker-blue">editor</mark>
 		</div>
 
-		<h2>Inline toolbar (en Version)</h2>
+		<h2>Inline toolbar (es Version)</h2>
 		<div id="inlineeditor">
 			Initial <strong>content</strong> of
 			<mark class="marker-blue">editor</mark>
@@ -56,6 +56,7 @@
 		<script src="../build/translations/uk.js"></script>
 		<script>
 			console.log(
+				"Plugins:",
 				CustomCKEditor.ClassicEditor.builtinPlugins.map(
 					(plugin) => plugin.pluginName
 				)
@@ -81,7 +82,7 @@
 			CustomCKEditor.InlineEditor.create(
 				document.querySelector("#inlineeditor"),
 				{
-					language: "en",
+					language: "es",
 				}
 			).catch((error) => {
 				console.error(error);
