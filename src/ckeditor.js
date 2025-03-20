@@ -1,12 +1,9 @@
 import { BalloonEditor as BalloonEditorBase } from "@ckeditor/ckeditor5-editor-balloon";
 import { ClassicEditor as ClassicEditorBase } from "@ckeditor/ckeditor5-editor-classic";
 import Autoformat from "@ckeditor/ckeditor5-autoformat/src/autoformat";
-import BlockQuote from "@ckeditor/ckeditor5-block-quote/src/blockquote.js";
 import Bold from "@ckeditor/ckeditor5-basic-styles/src/bold.js";
-import Code from "@ckeditor/ckeditor5-basic-styles/src/code.js";
 import Essentials from "@ckeditor/ckeditor5-essentials/src/essentials.js";
 import Heading from "@ckeditor/ckeditor5-heading/src/heading.js";
-import Highlight from "@ckeditor/ckeditor5-highlight/src/highlight.js";
 import HorizontalLine from "@ckeditor/ckeditor5-horizontal-line/src/horizontalline.js";
 import { Image } from "@ckeditor/ckeditor5-image";
 import ImageInsertViaUrl from "@ckeditor/ckeditor5-image/src/imageinsertviaurl.js";
@@ -38,12 +35,9 @@ class ClassicEditor extends ClassicEditorBase {}
 
 const plugins = [
 	Autoformat,
-	BlockQuote,
 	Bold,
-	Code,
 	Essentials,
 	Heading,
-	Highlight,
 	HorizontalLine,
 	Image,
 	ImageInsertViaUrl,
@@ -64,6 +58,7 @@ const plugins = [
 ];
 
 const config = {
+	language: "de",
 	toolbar: {
 		items: [
 			"undo",
@@ -74,8 +69,6 @@ const config = {
 			"bold",
 			"italic",
 			"strikethrough",
-			"highlight",
-			"code",
 			"superscript",
 			"subscript",
 			"|",
@@ -92,7 +85,6 @@ const config = {
 			"removeFormat",
 		],
 	},
-	language: "de",
 	table: {
 		contentToolbar: ["tableColumn", "tableRow", "mergeTableCells"],
 	},
