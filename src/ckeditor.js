@@ -3,6 +3,8 @@ import { ClassicEditor as ClassicEditorBase } from "@ckeditor/ckeditor5-editor-c
 import Autoformat from "@ckeditor/ckeditor5-autoformat/src/autoformat";
 import Bold from "@ckeditor/ckeditor5-basic-styles/src/bold.js";
 import Essentials from "@ckeditor/ckeditor5-essentials/src/essentials.js";
+import FontBackgroundColor from "@ckeditor/ckeditor5-font/src/fontbackgroundcolor.js";
+import FontColor from "@ckeditor/ckeditor5-font/src/fontcolor.js";
 import Heading from "@ckeditor/ckeditor5-heading/src/heading.js";
 import HorizontalLine from "@ckeditor/ckeditor5-horizontal-line/src/horizontalline.js";
 import { Image } from "@ckeditor/ckeditor5-image";
@@ -37,6 +39,8 @@ const plugins = [
 	Autoformat,
 	Bold,
 	Essentials,
+	FontBackgroundColor,
+	FontColor,
 	Heading,
 	HorizontalLine,
 	Image,
@@ -68,6 +72,8 @@ const config = {
 			"|",
 			"bold",
 			"italic",
+			"fontColor",
+			"fontBackgroundColor",
 			"strikethrough",
 			"superscript",
 			"subscript",
