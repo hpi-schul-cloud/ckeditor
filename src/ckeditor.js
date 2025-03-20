@@ -107,9 +107,4 @@ ClassicEditor.builtinPlugins = plugins;
 BalloonEditor.defaultConfig = config;
 ClassicEditor.defaultConfig = config;
 
-addMissingTranslationsDe();
-addMissingTranslationsEn();
-addMissingTranslationsEs();
-addMissingTranslationsUk();
-
 export default { BalloonEditor, ClassicEditor };
