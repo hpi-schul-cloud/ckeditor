@@ -19,22 +19,14 @@
 		<h1>CKEditor5 – Editor preview</h1>
 
 		<h2>Classic toolbar (de Version)</h2>
-		<div id="classiceditor">
-			Initial <strong>content</strong> of
-			<mark class="marker-blue">editor</mark>
-		</div>
+		<div id="classiceditor">Initial <strong>content</strong> of editor</div>
 
 		<h2>Balloon toolbar (en Version)</h2>
-		<div id="ballooneditor">
-			Initial <strong>content</strong> of
-			<mark class="marker-blue">editor</mark>
-		</div>
+		<div id="ballooneditor">Initial <strong>content</strong> of editor</div>
 
 		<h2>CK content view</h2>
 		<div id="view" class="ck-content">
-			Initial <strong>content</strong> of
-			<mark class="marker-blue">editor</mark>
-			<code>code</code>
+			Initial <strong>content</strong> of editor
 		</div>
 
 		<h2>Formula rendering from markup</h2>
@@ -50,6 +42,7 @@
 		<script src="../build/translations/uk.js"></script>
 		<script>
 			console.log(
+				"Plugins:",
 				CustomCKEditor.ClassicEditor.builtinPlugins.map(
 					(plugin) => plugin.pluginName
 				)
