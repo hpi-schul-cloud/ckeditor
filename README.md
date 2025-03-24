@@ -12,6 +12,7 @@ npm i @hpi-schul-cloud/ckeditor
 
 - Classic Toolbar
 - Balloon Toolbar
+- Inline Toolbar
 
 ## Built-in plugins
 
