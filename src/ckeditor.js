@@ -1,5 +1,6 @@
 import { BalloonEditor as BalloonEditorBase } from "@ckeditor/ckeditor5-editor-balloon";
 import { ClassicEditor as ClassicEditorBase } from "@ckeditor/ckeditor5-editor-classic";
+import { InlineEditor as InlineEditorBase } from "@ckeditor/ckeditor5-editor-inline";
 import Autoformat from "@ckeditor/ckeditor5-autoformat/src/autoformat";
 import Bold from "@ckeditor/ckeditor5-basic-styles/src/bold.js";
 import Essentials from "@ckeditor/ckeditor5-essentials/src/essentials.js";
@@ -33,6 +34,7 @@ addMissingTranslations();
 
 class BalloonEditor extends BalloonEditorBase {}
 class ClassicEditor extends ClassicEditorBase {}
+class InlineEditor extends InlineEditorBase {}
 
 const plugins = [
 	Autoformat,
@@ -103,8 +105,10 @@ const config = {
 
 BalloonEditor.builtinPlugins = plugins;
 ClassicEditor.builtinPlugins = plugins;
+InlineEditor.builtinPlugins = plugins;
 
 BalloonEditor.defaultConfig = config;
 ClassicEditor.defaultConfig = config;
+InlineEditor.defaultConfig = config;
 
-export default { BalloonEditor, ClassicEditor };
+export default { BalloonEditor, ClassicEditor, InlineEditor };

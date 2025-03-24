@@ -24,6 +24,12 @@
 		<h2>Balloon toolbar (en Version)</h2>
 		<div id="ballooneditor">Initial <strong>content</strong> of editor</div>
 
+		<h2>Inline toolbar (en Version)</h2>
+		<div id="inlineeditor">
+			Initial <strong>content</strong> of
+			<mark class="marker-blue">editor</mark>
+		</div>
+
 		<h2>CK content view</h2>
 		<div id="view" class="ck-content">
 			Initial <strong>content</strong> of editor
@@ -58,6 +64,15 @@
 
 			CustomCKEditor.BalloonEditor.create(
 				document.querySelector("#ballooneditor"),
+				{
+					language: "en",
+				}
+			).catch((error) => {
+				console.error(error);
+			});
+
+			CustomCKEditor.InlineEditor.create(
+				document.querySelector("#inlineeditor"),
 				{
 					language: "en",
 				}
