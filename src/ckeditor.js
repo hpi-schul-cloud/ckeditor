@@ -2,12 +2,11 @@ import { BalloonEditor as BalloonEditorBase } from "@ckeditor/ckeditor5-editor-b
 import { ClassicEditor as ClassicEditorBase } from "@ckeditor/ckeditor5-editor-classic";
 import { InlineEditor as InlineEditorBase } from "@ckeditor/ckeditor5-editor-inline";
 import Autoformat from "@ckeditor/ckeditor5-autoformat/src/autoformat";
-import BlockQuote from "@ckeditor/ckeditor5-block-quote/src/blockquote.js";
 import Bold from "@ckeditor/ckeditor5-basic-styles/src/bold.js";
-import Code from "@ckeditor/ckeditor5-basic-styles/src/code.js";
 import Essentials from "@ckeditor/ckeditor5-essentials/src/essentials.js";
+import FontBackgroundColor from "@ckeditor/ckeditor5-font/src/fontbackgroundcolor.js";
+import FontColor from "@ckeditor/ckeditor5-font/src/fontcolor.js";
 import Heading from "@ckeditor/ckeditor5-heading/src/heading.js";
-import Highlight from "@ckeditor/ckeditor5-highlight/src/highlight.js";
 import HorizontalLine from "@ckeditor/ckeditor5-horizontal-line/src/horizontalline.js";
 import { Image } from "@ckeditor/ckeditor5-image";
 import ImageInsertViaUrl from "@ckeditor/ckeditor5-image/src/imageinsertviaurl.js";
@@ -25,14 +24,13 @@ import Superscript from "@ckeditor/ckeditor5-basic-styles/src/superscript.js";
 import Table from "@ckeditor/ckeditor5-table/src/table.js";
 import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar.js";
 import WordCount from "@ckeditor/ckeditor5-word-count/src/wordcount.js";
-import addMissingTranslationsDe from "./locales/de";
-import addMissingTranslationsEn from "./locales/en";
-import addMissingTranslationsEs from "./locales/es";
-import addMissingTranslationsUk from "./locales/uk";
+import { addMissingTranslations } from "./util/addMissingTranslations";
 
 import "./variables.css";
 import "./content-styles.css";
 import "./custom-content-styles.css";
+
+addMissingTranslations();
 
 class BalloonEditor extends BalloonEditorBase {}
 class ClassicEditor extends ClassicEditorBase {}
@@ -40,12 +38,11 @@ class InlineEditor extends InlineEditorBase {}
 
 const plugins = [
 	Autoformat,
-	BlockQuote,
 	Bold,
-	Code,
 	Essentials,
+	FontBackgroundColor,
+	FontColor,
 	Heading,
-	Highlight,
 	HorizontalLine,
 	Image,
 	ImageInsertViaUrl,
@@ -66,6 +63,7 @@ const plugins = [
 ];
 
 const config = {
+	language: "de",
 	toolbar: {
 		items: [
 			"undo",
@@ -75,9 +73,9 @@ const config = {
 			"|",
 			"bold",
 			"italic",
+			"fontColor",
+			"fontBackgroundColor",
 			"strikethrough",
-			"highlight",
-			"code",
 			"superscript",
 			"subscript",
 			"|",
@@ -94,7 +92,6 @@ const config = {
 			"removeFormat",
 		],
 	},
-	language: "de",
 	table: {
 		contentToolbar: ["tableColumn", "tableRow", "mergeTableCells"],
 	},
@@ -113,10 +110,5 @@ InlineEditor.builtinPlugins = plugins;
 BalloonEditor.defaultConfig = config;
 ClassicEditor.defaultConfig = config;
 InlineEditor.defaultConfig = config;
-
-addMissingTranslationsDe();
-addMissingTranslationsEn();
-addMissingTranslationsEs();
-addMissingTranslationsUk();
 
 export default { BalloonEditor, ClassicEditor, InlineEditor };
