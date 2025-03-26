@@ -10,18 +10,18 @@ npm i @hpi-schul-cloud/ckeditor
 
 ## Supported editor modes
 
-- classic toolbar
-- balloon toolbar
+- Classic Toolbar
+- Balloon Toolbar
+- Inline Toolbar
 
 ## Built-in plugins
 
 - AutoFormat
-- BlockQuote
 - Bold
-- Code
 - Essentials
+- FontBackgrounColor
+- FontColor
 - Heading
-- Highlight
 - HorizontalLine
 - Image
 - ImageInsertViaUrl
@@ -32,6 +32,7 @@ npm i @hpi-schul-cloud/ckeditor
 - Paragraph
 - RemoveFormat
 - SpecialCharacters
+- SpecialCharactersEssentials
 - Strikethrough
 - Subscript
 - Superscript
@@ -39,7 +40,7 @@ npm i @hpi-schul-cloud/ckeditor
 - TableToolbar
 - WordCount
 
-Note: the included image plugins only support an image insertion via URL, not via upload
+Note: The included image plugins only support an image insertion via URL, not via upload.
 
 ## Supported languages
 
