@@ -16,12 +16,15 @@ module.exports = {
 	entry: path.resolve(__dirname, "src", "ckeditor.js"),
 
 	output: {
-		library: "CustomCKEditor",
-
-		path: path.resolve(__dirname, "build"),
 		filename: "ckeditor.js",
-		libraryTarget: "umd",
-		libraryExport: "default",
+		path: path.resolve(__dirname, "build"),
+		library: {
+			type: "module"
+		},
+    globalObject: 'this',
+	},
+	experiments: {
+		outputModule: true,
 	},
 
 	optimization: {
