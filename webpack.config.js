@@ -5,9 +5,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const { bundler, styles } = require("@ckeditor/ckeditor5-dev-utils");
-const {
-	CKEditorTranslationsPlugin,
-} = require("@ckeditor/ckeditor5-dev-translations");
+const { CKEditorTranslationsPlugin } = require( '@ckeditor/ckeditor5-dev-translations' );
 const TerserWebpackPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -18,12 +16,15 @@ module.exports = {
 	entry: path.resolve(__dirname, "src", "ckeditor.js"),
 
 	output: {
-		library: "CustomCKEditor",
-
-		path: path.resolve(__dirname, "build"),
 		filename: "ckeditor.js",
-		libraryTarget: "umd",
-		libraryExport: "default",
+		path: path.resolve(__dirname, "build"),
+		library: {
+			type: "module"
+		},
+    globalObject: 'this',
+	},
+	experiments: {
+		outputModule: true,
 	},
 
 	optimization: {

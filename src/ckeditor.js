@@ -1,7 +1,7 @@
 import { BalloonEditor as BalloonEditorBase } from "@ckeditor/ckeditor5-editor-balloon";
 import { ClassicEditor as ClassicEditorBase } from "@ckeditor/ckeditor5-editor-classic";
 import { InlineEditor as InlineEditorBase } from "@ckeditor/ckeditor5-editor-inline";
-import Autoformat from "@ckeditor/ckeditor5-autoformat/src/autoformat";
+import Autoformat from "@ckeditor/ckeditor5-autoformat/src/autoformat.js";
 import Bold from "@ckeditor/ckeditor5-basic-styles/src/bold.js";
 import Essentials from "@ckeditor/ckeditor5-essentials/src/essentials.js";
 import FontBackgroundColor from "@ckeditor/ckeditor5-font/src/fontbackgroundcolor.js";
@@ -13,7 +13,7 @@ import ImageInsertViaUrl from "@ckeditor/ckeditor5-image/src/imageinsertviaurl.j
 import Italic from "@ckeditor/ckeditor5-basic-styles/src/italic.js";
 import Link from "@ckeditor/ckeditor5-link/src/link.js";
 import List from "@ckeditor/ckeditor5-list/src/list.js";
-import Mathematics from "@isaul32/ckeditor5-math/src/math";
+import { Math }  from "@isaul32/ckeditor5-math";
 import Paragraph from "@ckeditor/ckeditor5-paragraph/src/paragraph.js";
 import RemoveFormat from "@ckeditor/ckeditor5-remove-format/src/removeformat";
 import SpecialCharacters from "@ckeditor/ckeditor5-special-characters/src/specialcharacters.js";
@@ -24,7 +24,7 @@ import Superscript from "@ckeditor/ckeditor5-basic-styles/src/superscript.js";
 import Table from "@ckeditor/ckeditor5-table/src/table.js";
 import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar.js";
 import WordCount from "@ckeditor/ckeditor5-word-count/src/wordcount.js";
-import { addMissingTranslations } from "./util/addMissingTranslations";
+import { addMissingTranslations } from "./util/addMissingTranslations.js";
 
 import "./variables.css";
 import "./content-styles.css";
@@ -49,7 +49,7 @@ const plugins = [
 	Italic,
 	Link,
 	List,
-	Mathematics,
+	Math,
 	Paragraph,
 	RemoveFormat,
 	SpecialCharacters,
@@ -86,7 +86,6 @@ const config = {
 			"math",
 			"horizontalLine",
 			"|",
-			"blockQuote",
 			"insertTable",
 			"specialCharacters",
 			"removeFormat",
@@ -111,4 +110,4 @@ BalloonEditor.defaultConfig = config;
 ClassicEditor.defaultConfig = config;
 InlineEditor.defaultConfig = config;
 
-export default { BalloonEditor, ClassicEditor, InlineEditor };
+export { BalloonEditor, ClassicEditor, InlineEditor };
