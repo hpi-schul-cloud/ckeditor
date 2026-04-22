@@ -10,6 +10,7 @@ import Heading from "@ckeditor/ckeditor5-heading/src/heading.js";
 import HorizontalLine from "@ckeditor/ckeditor5-horizontal-line/src/horizontalline.js";
 import { Image } from "@ckeditor/ckeditor5-image";
 import ImageInsertViaUrl from "@ckeditor/ckeditor5-image/src/imageinsertviaurl.js";
+import ImageResize from "@ckeditor/ckeditor5-image/src/imageresize.js";
 import Italic from "@ckeditor/ckeditor5-basic-styles/src/italic.js";
 import Link from "@ckeditor/ckeditor5-link/src/link.js";
 import List from "@ckeditor/ckeditor5-list/src/list.js";
@@ -25,6 +26,7 @@ import Table from "@ckeditor/ckeditor5-table/src/table.js";
 import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar.js";
 import WordCount from "@ckeditor/ckeditor5-word-count/src/wordcount.js";
 import { addMissingTranslations } from "./util/addMissingTranslations.js";
+import TaskImageUpload from "./plugins/taskimageupload.js";
 
 import "./variables.css";
 import "./content-styles.css";
@@ -46,6 +48,7 @@ const plugins = [
 	HorizontalLine,
 	Image,
 	ImageInsertViaUrl,
+	ImageResize,
 	Italic,
 	Link,
 	List,
@@ -59,6 +62,7 @@ const plugins = [
 	Superscript,
 	Table,
 	TableToolbar,
+	TaskImageUpload,
 	WordCount,
 ];
 

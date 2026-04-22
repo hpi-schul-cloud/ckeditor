@@ -1,10 +1,10 @@
 {
 	"name": "@hpi-schul-cloud/ckeditor",
-	"version": "2.1.2",
+	"version": "2.1.4-task-images.1",
 	"description": "Custom version of CKEditor5 for the Schulcloud-Verbund-Software-Client",
 	"author": "Dataport Schulcloud-Verbund-Software Team",
 	"repository": {
-		"github": "https://github.com/hpi-schul-cloud/ckeditor"
+		"url" : "https://github.com/hpi-schul-cloud/ckeditor"
 	},
 	"license": "AGPL-3.0",
 	"homepage": "https://github.com/hpi-schul-cloud/ckeditor",
@@ -40,6 +40,7 @@
 		"@ckeditor/ckeditor5-table": "41.4.2",
 		"@ckeditor/ckeditor5-theme-lark": "41.4.2",
 		"@ckeditor/ckeditor5-typing": "41.4.2",
+		"@ckeditor/ckeditor5-ui": "41.4.2",
 		"@ckeditor/ckeditor5-word-count": "41.4.2",
 		"@isaul32/ckeditor5-math": "41.4.2",
 		"css-loader": "^5.2.7",

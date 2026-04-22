@@ -25,6 +25,7 @@ npm i @hpi-schul-cloud/ckeditor
 - HorizontalLine
 - Image
 - ImageInsertViaUrl
+- ImageResize
 - Italic
 - Link
 - List
@@ -38,9 +39,10 @@ npm i @hpi-schul-cloud/ckeditor
 - Superscript
 - Table
 - TableToolbar
+- TaskImageUpload (enabled when `taskImageUpload` is configured)
 - WordCount
 
-Note: The included image plugins only support an image insertion via URL, not via upload.
+Note: The included image plugins support image insertion via URL. The `TaskImageUpload` plugin provides a toolbar button for applications that supply a `taskImageUpload` callback.
 
 ## Supported languages
 
