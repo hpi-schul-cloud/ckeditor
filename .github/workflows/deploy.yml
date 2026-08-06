@@ -22,4 +22,20 @@ jobs:
         npm run build
     - name: Publish
       run: |
-        npm publish
+        PACKAGE_VERSION=$(node -p "require('./package.json').version")
+        RELEASE_TAG="${GITHUB_REF_NAME}"
+
+        if [ "$PACKAGE_VERSION" != "$RELEASE_TAG" ]; then
+          echo "Package version ($PACKAGE_VERSION) does not match release tag ($RELEASE_TAG)."
+          exit 1
+        fi
+
+        if [[ "$PACKAGE_VERSION" == *-* ]]; then
+          PRERELEASE="${PACKAGE_VERSION#*-}"
+          DIST_TAG="${PRERELEASE%%.*}"
+          echo "Publishing prerelease $PACKAGE_VERSION with dist-tag $DIST_TAG"
+          npm publish --tag "$DIST_TAG"
+        else
+          echo "Publishing stable release $PACKAGE_VERSION with the default dist-tag"
+          npm publish
+        fi
