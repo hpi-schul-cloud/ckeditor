@@ -26,6 +26,7 @@ import Table from "@ckeditor/ckeditor5-table/src/table.js";
 import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar.js";
 import WordCount from "@ckeditor/ckeditor5-word-count/src/wordcount.js";
 import { addMissingTranslations } from "./util/addMissingTranslations.js";
+import TaskAudioUpload from "./plugins/taskaudioupload.js";
 import TaskImageUpload from "./plugins/taskimageupload.js";
 
 import "./variables.css";
@@ -62,6 +63,7 @@ const plugins = [
 	Superscript,
 	Table,
 	TableToolbar,
+	TaskAudioUpload,
 	TaskImageUpload,
 	WordCount,
 ];
