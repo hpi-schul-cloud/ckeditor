@@ -28,6 +28,7 @@ import WordCount from "@ckeditor/ckeditor5-word-count/src/wordcount.js";
 import { addMissingTranslations } from "./util/addMissingTranslations.js";
 import TaskAudioUpload from "./plugins/taskaudioupload.js";
 import TaskImageUpload from "./plugins/taskimageupload.js";
+import TaskVideoUpload from "./plugins/taskvideoupload.js";
 
 import "./variables.css";
 import "./content-styles.css";
@@ -65,6 +66,7 @@ const plugins = [
 	TableToolbar,
 	TaskAudioUpload,
 	TaskImageUpload,
+	TaskVideoUpload,
 	WordCount,
 ];
 
