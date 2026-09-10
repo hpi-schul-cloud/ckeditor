@@ -142,4 +142,32 @@ describe("MathUI", () => {
 		expect(editor.getData()).toBe("");
 		expect(balloon().visibleView).toBeNull();
 	});
+
+	it("reopens the balloon when the view document is clicked while a math widget is selected", async () => {
+		editor = await createEditor();
+		editor.execute("math", "x^2", false);
+
+		editor.editing.view.document.fire("click");
+
+		expect(balloon().visibleView).toBeTruthy();
+	});
+
+	it("does not open the balloon on click when the selection is not on a math widget", async () => {
+		editor = await createEditor();
+
+		editor.editing.view.document.fire("click");
+
+		expect(balloon().visibleView).toBeNull();
+	});
+
+	it("does not add the form view twice when clicking an already selected widget with the panel open", async () => {
+		editor = await createEditor();
+		editor.execute("math", "x^2", false);
+
+		editor.editing.view.document.fire("click");
+		const firstView = balloon().visibleView;
+		editor.editing.view.document.fire("click");
+
+		expect(balloon().visibleView).toBe(firstView);
+	});
 });

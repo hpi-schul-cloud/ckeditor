@@ -1,4 +1,4 @@
-import { ButtonView, clickOutsideHandler, ContextualBalloon, Plugin } from "ckeditor5";
+import { ButtonView, ClickObserver, clickOutsideHandler, ContextualBalloon, Plugin } from "ckeditor5";
 
 import type { MathCommand, MathValue } from "./mathcommand";
 import { MathFormView } from "./ui/mathformview";
@@ -19,6 +19,9 @@ export class MathUI extends Plugin {
 	init() {
 		const { editor } = this;
 
+		// A click observer is required to react to clicks on existing math widgets.
+		editor.editing.view.addObserver(ClickObserver);
+
 		this.balloon = editor.plugins.get(ContextualBalloon);
 		this.formView = this.createFormView();
 
@@ -37,6 +40,8 @@ export class MathUI extends Plugin {
 
 			return view;
 		});
+
+		this.enableUserBalloonInteractions();
 	}
 
 	override destroy() {
@@ -72,6 +77,21 @@ export class MathUI extends Plugin {
 
 	private get isVisible() {
 		return this.balloon.visibleView === this.formView;
+	}
+
+	// Reopens the balloon when the user clicks a math widget that is already selected, matching
+	// the click-to-edit behavior of the original @isaul32/ckeditor5-math plugin.
+	private enableUserBalloonInteractions() {
+		const { editor } = this;
+		const viewDocument = editor.editing.view.document;
+
+		this.listenTo(viewDocument, "click", () => {
+			const command = editor.commands.get("math") as MathCommand;
+
+			if (command.isEnabled && command.value && !this.isVisible) {
+				this.showUI();
+			}
+		});
 	}
 
 	showUI() {
