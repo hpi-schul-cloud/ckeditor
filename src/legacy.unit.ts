@@ -52,7 +52,7 @@ describe("Legacy editor bundle", () => {
 
 		expect(editor.ui.componentFactory.has("helplink")).toBe(true);
 		expect(editor.ui.componentFactory.has("math")).toBe(true);
-		expect(editor.ui.componentFactory.has("insertImage")).toBe(true);
+		expect(editor.ui.componentFactory.has("imagebrowser")).toBe(true);
 		expect(editor.ui.componentFactory.has("mediaEmbed")).toBe(true);
 		expect(editor.ui.componentFactory.has("insertTable")).toBe(true);
 	});
