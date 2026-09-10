@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>HPI Schulcloud CKEditor 5 — Default editors</title>
+		<link rel="stylesheet" href="../build/style.css" />
+		<style>
+			body {
+				font-family: system-ui, sans-serif;
+				margin: 2rem auto;
+				max-width: 50rem;
+			}
+			section {
+				margin-bottom: 3rem;
+			}
+			.controls {
+				display: flex;
+				gap: 0.5rem;
+				margin-bottom: 1rem;
+				align-items: center;
+			}
+			.ck-editor__editable {
+				min-height: 20rem;
+			}
+			.inline-wrapper {
+				border: 1px solid #ccc;
+				padding: 0.5rem;
+			}
+			.inline-wrapper.classic {
+				border: none;
+				padding: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>HPI Schulcloud CKEditor — Default editors (nuxt-client / vue)</h1>
+
+		<section>
+			<div class="controls">
+				<button type="button" data-type="classic">Classic</button>
+				<button type="button" data-type="inline">Inline</button>
+				<label>
+					Language
+					<select id="language">
+						<option value="de">de</option>
+						<option value="en">en</option>
+						<option value="es">es</option>
+						<option value="uk">uk</option>
+					</select>
+				</label>
+				<span id="current"></span>
+			</div>
+			<div id="wrapper" class="inline-wrapper classic">
+				<div id="editor">
+					<p>Hello <strong>bold</strong> and <i>italic</i> world.</p>
+					<ul>
+						<li>A bulleted list item</li>
+					</ul>
+					<p>A formula: <span class="math-tex">\( \sqrt{\frac{a}{b}} \)</span></p>
+				</div>
+			</div>
+		</section>
+
+		<script type="module">
+			import katex from "katex";
+			import "katex/dist/katex.min.css";
+			import { ClassicEditor, InlineEditor } from "../build/index.js";
+
+			// the math plugin resolves its typesetting engine from the global scope
+			window.katex = katex;
+
+			const editors = { classic: ClassicEditor, inline: InlineEditor };
+
+			const element = document.querySelector("#editor");
+			const wrapper = document.querySelector("#wrapper");
+			const label = document.querySelector("#current");
+			const languageSelect = document.querySelector("#language");
+
+			let editor = null;
+			let type = "classic";
+
+			async function load() {
+				if (editor) {
+					const data = editor.getData();
+					await editor.destroy();
+					element.innerHTML = data;
+					wrapper.append(element);
+				}
+
+				const language = languageSelect.value;
+				const config = type === "classic" ? { attachTo: element, language } : { root: { element }, language };
+
+				wrapper.classList.toggle("classic", type === "classic");
+				editor = await editors[type].create(config);
+				label.textContent = `active: ${type} / ${language}`;
+				window.defaultEditor = editor;
+			}
+
+			for (const button of document.querySelectorAll("[data-type]")) {
+				button.addEventListener("click", () => {
+					type = button.dataset.type;
+					load().catch(console.error);
+				});
+			}
+
+			languageSelect.addEventListener("change", () => load().catch(console.error));
+
+			await load();
+		</script>
+	</body>
+</html>
