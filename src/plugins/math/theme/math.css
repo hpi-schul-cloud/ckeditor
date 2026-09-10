@@ -17,6 +17,11 @@
 	font-family: monospace;
 }
 
+.ck.ck-math-form .ck-label {
+	padding-left: calc(var(--ck-spacing-standard, 10px) + 1px);
+	margin-bottom: calc(var(--ck-spacing-standard, 10px) * -0.5);
+}
+
 .ck.ck-math-preview {
 	display: block;
 	overflow: hidden;

@@ -4,6 +4,7 @@ import {
 	IconCancel,
 	IconCheck,
 	LabeledFieldView,
+	LabelView,
 	submitHandler,
 	SwitchButtonView,
 	View,
@@ -18,6 +19,7 @@ export class MathFormView extends View {
 	declare public displayMode: boolean;
 	public equationInputView: LabeledFieldView;
 	public displayButtonView: SwitchButtonView;
+	public previewLabel: LabelView;
 	public previewView: View;
 	public saveButtonView: ButtonView;
 	public cancelButtonView: ButtonView;
@@ -47,6 +49,9 @@ export class MathFormView extends View {
 			attributes: { class: ["ck", "ck-math-preview"] },
 		});
 
+		this.previewLabel = new LabelView(locale);
+		this.previewLabel.text = t("Equation preview");
+
 		this.saveButtonView = this.createButton(t("Save"), IconCheck, "ck-button-save");
 		this.saveButtonView.type = "submit";
 
@@ -68,7 +73,7 @@ export class MathFormView extends View {
 				class: ["ck", "ck-math-form"],
 				tabindex: "-1",
 			},
-			children: [this.equationInputView, this.displayButtonView, this.previewView, this.actionsView],
+			children: [this.equationInputView, this.displayButtonView, this.previewLabel, this.previewView, this.actionsView],
 		});
 	}
 
