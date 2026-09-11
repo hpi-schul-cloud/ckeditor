@@ -14,7 +14,6 @@ import {
 	HorizontalLine,
 	Image,
 	ImageResize,
-	ImageToolbar,
 	Indent,
 	Italic,
 	Link,
@@ -110,7 +109,6 @@ const plugins: PluginConstructor[] = [
 	HorizontalLine,
 	Image,
 	ImageResize,
-	ImageToolbar,
 	Indent,
 	Italic,
 	Link,
@@ -176,9 +174,10 @@ const config: CkEditorConfig = {
 			"|",
 			"link",
 			"imagebrowser",
-			"mediaEmbed",
 			"videobrowser",
 			"audiobrowser",
+			"mediaEmbed",
+			"|",
 			"helplink",
 			"|",
 		],
@@ -194,9 +193,6 @@ const config: CkEditorConfig = {
 	},
 	table: {
 		contentToolbar: ["tableColumn", "tableRow", "mergeTableCells", "tableProperties", "tableCellProperties"],
-	},
-	image: {
-		toolbar: ["imageTextAlternative", "|", "imageStyle:alignLeft", "imageStyle:alignCenter", "imageStyle:alignRight"],
 	},
 };
 
