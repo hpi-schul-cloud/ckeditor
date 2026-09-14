@@ -62,7 +62,7 @@ Both editors share the same plugin set:
 
 ### Legacy editor (`LegacyClassicEditor`)
 
-Includes all default plugins plus:
+Includes all default plugins except `ImageInsertViaUrl` (images are inserted via `FileBrowser` instead), plus:
 
 - BlockQuote
 - Code
@@ -70,7 +70,6 @@ Includes all default plugins plus:
 - Font (adds FontSize and FontFamily)
 - HelpLink (custom toolbar button that opens a configurable help URL)
 - ImageResize
-- ImageToolbar
 - Indent
 - MediaEmbed
 - PasteFromOffice
