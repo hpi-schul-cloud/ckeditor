@@ -1,6 +1,5 @@
 import { Plugin } from "ckeditor5";
 
-import type { FileBrowserAdapter } from "./filebrowseradapter";
 import "./filebrowserconfig";
 import { InsertAudioCommand } from "./commands/insertaudiocommand";
 import { InsertImageCommand } from "./commands/insertimagecommand";
@@ -15,7 +14,7 @@ export class FileBrowserEditing extends Plugin {
 	}
 
 	init(): void {
-		const adapter = this.editor.config.get("filebrowser.adapter") as FileBrowserAdapter | undefined;
+		const adapter = this.editor.config.get("filebrowser.adapter");
 
 		if (!adapter) {
 			// eslint-disable-next-line no-console

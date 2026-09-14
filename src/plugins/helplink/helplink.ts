@@ -19,7 +19,7 @@ export class HelpLink extends Plugin {
 
 	init(): void {
 		const { editor } = this;
-		const url = (editor.config.get("helplink.url") as string | undefined) ?? DEFAULT_HELP_URL;
+		const url = editor.config.get("helplink.url") ?? DEFAULT_HELP_URL;
 
 		editor.ui.componentFactory.add("helplink", (locale) => {
 			const view = new ButtonView(locale);
