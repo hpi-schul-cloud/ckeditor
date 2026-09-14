@@ -1,6 +1,6 @@
 import { ButtonView, Plugin } from "ckeditor5";
 
-import helpIcon from "./theme/help.svg?raw";
+import helpIcon from "./theme/icons/help.svg?raw";
 
 const DEFAULT_HELP_URL = "/help/confluence/123409350";
 

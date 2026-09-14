@@ -2,7 +2,7 @@ import { ButtonView, ClickObserver, clickOutsideHandler, ContextualBalloon, Plug
 
 import type { MathCommand, MathValue } from "./mathcommand";
 import { MathFormView } from "./ui/mathformview";
-import mathIcon from "./theme/math.svg?raw";
+import mathIcon from "./theme/icons/math.svg?raw";
 
 export class MathUI extends Plugin {
 	private balloon!: InstanceType<typeof ContextualBalloon>;
