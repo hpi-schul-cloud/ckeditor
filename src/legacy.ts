@@ -60,10 +60,6 @@ class LegacyClassicEditor extends ClassicEditorBase {
 			return super.create({ attachTo: sourceElementOrConfig, ...(config ?? {}) });
 		}
 
-		if (typeof sourceElementOrConfig === "string") {
-			return super.create({ root: { initialData: sourceElementOrConfig }, ...(config ?? {}) });
-		}
-
 		return super.create(sourceElementOrConfig as CkEditorConfig);
 	}
 }

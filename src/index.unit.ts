@@ -46,10 +46,4 @@ describe("Default editor bundle", () => {
 		expect(editor.ui.componentFactory.has("insertImage")).toBe(true);
 		expect(editor.ui.componentFactory.has("specialCharacters")).toBe(true);
 	});
-
-	it("creates an editor from a string", async () => {
-		editor = await ClassicEditor.create("<p>Hello</p>");
-
-		expect(editor.getData()).toContain("Hello");
-	});
 });

@@ -56,10 +56,4 @@ describe("Legacy editor bundle", () => {
 		expect(editor.ui.componentFactory.has("mediaEmbed")).toBe(true);
 		expect(editor.ui.componentFactory.has("insertTable")).toBe(true);
 	});
-
-	it("creates an editor from a string", async () => {
-		editor = await LegacyClassicEditor.create("<p>Hello</p>");
-
-		expect(editor.getData()).toContain("Hello");
-	});
 });

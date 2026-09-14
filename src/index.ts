@@ -47,10 +47,6 @@ class ClassicEditor extends ClassicEditorBase {
 			return super.create({ attachTo: sourceElementOrConfig, ...(config ?? {}) });
 		}
 
-		if (typeof sourceElementOrConfig === "string") {
-			return super.create({ root: { initialData: sourceElementOrConfig }, ...(config ?? {}) });
-		}
-
 		return super.create(sourceElementOrConfig as CkEditorConfig);
 	}
 }
@@ -62,10 +58,6 @@ class InlineEditor extends InlineEditorBase {
 	): Promise<InlineEditor> {
 		if (typeof HTMLElement !== "undefined" && sourceElementOrConfig instanceof HTMLElement) {
 			return super.create({ root: { element: sourceElementOrConfig }, ...(config ?? {}) });
-		}
-
-		if (typeof sourceElementOrConfig === "string") {
-			return super.create({ root: { initialData: sourceElementOrConfig }, ...(config ?? {}) });
 		}
 
 		return super.create(sourceElementOrConfig as CkEditorConfig);
