@@ -1,0 +1,7 @@
+/* ckeditor5's base .ck-content rule forces font-family/size/color/line-height; inherit the host page's typography instead, as the old content-styles.css did. */
+.ck-content {
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	line-height: inherit;
+}

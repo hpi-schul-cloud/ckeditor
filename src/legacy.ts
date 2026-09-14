@@ -45,6 +45,7 @@ import { Math } from "./plugins/math/math";
 import { mathTranslations } from "./plugins/math/translations";
 
 import "ckeditor5/ckeditor5.css";
+import "./theme/content.css";
 
 import translationsDe from "ckeditor5/translations/de.js";
 import translationsEs from "ckeditor5/translations/es.js";
