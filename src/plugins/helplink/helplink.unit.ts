@@ -49,21 +49,25 @@ describe("HelpLink plugin", () => {
 		expect(button.element?.tagName.toLowerCase()).toBe("button");
 	});
 
-	it("opens the default help URL when clicked", async () => {
-		editor = await createEditor();
-		const button = editor.ui.componentFactory.create("helplink");
+	describe("when clicked", () => {
+		it("opens the default help URL", async () => {
+			editor = await createEditor();
+			const button = editor.ui.componentFactory.create("helplink");
 
-		button.fire("execute");
+			button.fire("execute");
 
-		expect(window.open).toHaveBeenCalledWith(DEFAULT_HELP_URL, "_blank");
-	});
+			expect(window.open).toHaveBeenCalledWith(DEFAULT_HELP_URL, "_blank");
+		});
 
-	it("uses a custom help URL from config when clicked", async () => {
-		editor = await createEditor({ helplink: { url: CUSTOM_HELP_URL } });
-		const button = editor.ui.componentFactory.create("helplink");
+		describe("when a custom help URL is configured", () => {
+			it("opens the custom help URL", async () => {
+				editor = await createEditor({ helplink: { url: CUSTOM_HELP_URL } });
+				const button = editor.ui.componentFactory.create("helplink");
 
-		button.fire("execute");
+				button.fire("execute");
 
-		expect(window.open).toHaveBeenCalledWith(CUSTOM_HELP_URL, "_blank");
+				expect(window.open).toHaveBeenCalledWith(CUSTOM_HELP_URL, "_blank");
+			});
+		});
 	});
 });

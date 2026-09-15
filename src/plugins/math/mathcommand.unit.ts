@@ -37,10 +37,12 @@ describe("MathCommand", () => {
 		return editor.commands.get("math") as MathCommand;
 	}
 
-	it("is enabled when the selection is in a context that allows an inline formula", async () => {
-		editor = await createEditor();
+	describe("when the selection is in a context that allows an inline formula", () => {
+		it("is enabled", async () => {
+			editor = await createEditor();
 
-		expect(command().isEnabled).toBe(true);
+			expect(command().isEnabled).toBe(true);
+		});
 	});
 
 	it("inserts an inline formula", async () => {
@@ -67,10 +69,12 @@ describe("MathCommand", () => {
 		expect(command().value).toEqual({ equation: "x^2", display: true });
 	});
 
-	it("reports a null value when no math widget is selected", async () => {
-		editor = await createEditor();
+	describe("when no math widget is selected", () => {
+		it("reports a null value", async () => {
+			editor = await createEditor();
 
-		expect(command().value).toBeNull();
+			expect(command().value).toBeNull();
+		});
 	});
 
 	it("updates the selected widget instead of inserting a duplicate", async () => {

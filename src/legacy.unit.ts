@@ -31,20 +31,22 @@ describe("Legacy editor bundle", () => {
 		expect(editor.locale.uiLanguage).toBe("de");
 	});
 
-	it("enables file browser buttons when an adapter is configured", async () => {
-		const adapter = {
-			pickImage: vi.fn(),
-			pickVideo: vi.fn(),
-			pickAudio: vi.fn(),
-		};
+	describe("when an adapter is configured", () => {
+		it("enables file browser buttons", async () => {
+			const adapter = {
+				pickImage: vi.fn(),
+				pickVideo: vi.fn(),
+				pickAudio: vi.fn(),
+			};
 
-		editor = await LegacyClassicEditor.create(createElement(), {
-			filebrowser: { adapter },
+			editor = await LegacyClassicEditor.create(createElement(), {
+				filebrowser: { adapter },
+			});
+
+			expect(editor.commands.get("imagebrowser")!.isEnabled).toBe(true);
+			expect(editor.commands.get("videobrowser")!.isEnabled).toBe(true);
+			expect(editor.commands.get("audiobrowser")!.isEnabled).toBe(true);
 		});
-
-		expect(editor.commands.get("imagebrowser")!.isEnabled).toBe(true);
-		expect(editor.commands.get("videobrowser")!.isEnabled).toBe(true);
-		expect(editor.commands.get("audiobrowser")!.isEnabled).toBe(true);
 	});
 
 	it("registers expected toolbar component factories", async () => {

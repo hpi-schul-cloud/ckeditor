@@ -64,86 +64,104 @@ describe("FileBrowser plugin", () => {
 			expect(audioButton.element?.tagName.toLowerCase()).toBe("button");
 		});
 
-		it("disables buttons when no adapter is configured", async () => {
-			editor = await createEditor();
+		describe("when no adapter is configured", () => {
+			it("disables buttons", async () => {
+				editor = await createEditor();
 
-			expect(editor.commands.get("imagebrowser")!.isEnabled).toBe(false);
-			expect(editor.commands.get("videobrowser")!.isEnabled).toBe(false);
-			expect(editor.commands.get("audiobrowser")!.isEnabled).toBe(false);
+				expect(editor.commands.get("imagebrowser")!.isEnabled).toBe(false);
+				expect(editor.commands.get("videobrowser")!.isEnabled).toBe(false);
+				expect(editor.commands.get("audiobrowser")!.isEnabled).toBe(false);
+			});
 		});
 
-		it("enables buttons when an adapter is configured", async () => {
-			editor = await createEditor(createAdapter());
+		describe("when an adapter is configured", () => {
+			it("enables buttons", async () => {
+				editor = await createEditor(createAdapter());
 
-			expect(editor.commands.get("imagebrowser")!.isEnabled).toBe(true);
-			expect(editor.commands.get("videobrowser")!.isEnabled).toBe(true);
-			expect(editor.commands.get("audiobrowser")!.isEnabled).toBe(true);
+				expect(editor.commands.get("imagebrowser")!.isEnabled).toBe(true);
+				expect(editor.commands.get("videobrowser")!.isEnabled).toBe(true);
+				expect(editor.commands.get("audiobrowser")!.isEnabled).toBe(true);
+			});
 		});
 	});
 
 	describe("commands", () => {
-		it("inserts an imageBlock element when the image adapter resolves a selection", async () => {
-			const adapter = createAdapter();
-			(adapter.pickImage as ReturnType<typeof vi.fn>).mockResolvedValue({
-				url: "https://example.com/image.png",
-				alt: "Example image",
+		describe("imagebrowser", () => {
+			describe("when the adapter resolves a selection", () => {
+				it("inserts an imageBlock element", async () => {
+					const adapter = createAdapter();
+					(adapter.pickImage as ReturnType<typeof vi.fn>).mockResolvedValue({
+						url: "https://example.com/image.png",
+						alt: "Example image",
+					});
+
+					editor = await createEditor(adapter);
+
+					await editor.execute("imagebrowser");
+
+					expect(adapter.pickImage).toHaveBeenCalled();
+					const data = editor.getData();
+					expect(data).toContain("https://example.com/image.png");
+					expect(data).toContain('alt="Example image"');
+				});
 			});
 
-			editor = await createEditor(adapter);
+			describe("when the user cancels the picker", () => {
+				it("does not insert anything", async () => {
+					const adapter = createAdapter();
+					(adapter.pickImage as ReturnType<typeof vi.fn>).mockResolvedValue(null);
 
-			await editor.execute("imagebrowser");
+					editor = await createEditor(adapter);
+					editor.setData("<p>before</p>");
 
-			expect(adapter.pickImage).toHaveBeenCalled();
-			const data = editor.getData();
-			expect(data).toContain("https://example.com/image.png");
-			expect(data).toContain('alt="Example image"');
-		});
+					await editor.execute("imagebrowser");
 
-		it("inserts a video element when the video adapter resolves a selection", async () => {
-			const adapter = createAdapter();
-			(adapter.pickVideo as ReturnType<typeof vi.fn>).mockResolvedValue({
-				url: "https://example.com/video.mp4",
+					expect(adapter.pickImage).toHaveBeenCalled();
+					expect(editor.getData()).toBe("<p>before</p>");
+				});
 			});
-
-			editor = await createEditor(adapter);
-
-			await editor.execute("videobrowser");
-
-			expect(adapter.pickVideo).toHaveBeenCalled();
-			const data = editor.getData();
-			expect(data).toContain("https://example.com/video.mp4");
-			expect(data).toContain("<video");
-			expect(data).toContain("controls");
 		});
 
-		it("inserts an audio element when the audio adapter resolves a selection", async () => {
-			const adapter = createAdapter();
-			(adapter.pickAudio as ReturnType<typeof vi.fn>).mockResolvedValue({
-				url: "https://example.com/audio.mp3",
+		describe("videobrowser", () => {
+			describe("when the adapter resolves a selection", () => {
+				it("inserts a video element", async () => {
+					const adapter = createAdapter();
+					(adapter.pickVideo as ReturnType<typeof vi.fn>).mockResolvedValue({
+						url: "https://example.com/video.mp4",
+					});
+
+					editor = await createEditor(adapter);
+
+					await editor.execute("videobrowser");
+
+					expect(adapter.pickVideo).toHaveBeenCalled();
+					const data = editor.getData();
+					expect(data).toContain("https://example.com/video.mp4");
+					expect(data).toContain("<video");
+					expect(data).toContain("controls");
+				});
 			});
-
-			editor = await createEditor(adapter);
-
-			await editor.execute("audiobrowser");
-
-			expect(adapter.pickAudio).toHaveBeenCalled();
-			const data = editor.getData();
-			expect(data).toContain("https://example.com/audio.mp3");
-			expect(data).toContain("<audio");
-			expect(data).toContain("controls");
 		});
 
-		it("does not insert anything when the user cancels the image picker", async () => {
-			const adapter = createAdapter();
-			(adapter.pickImage as ReturnType<typeof vi.fn>).mockResolvedValue(null);
+		describe("audiobrowser", () => {
+			describe("when the adapter resolves a selection", () => {
+				it("inserts an audio element", async () => {
+					const adapter = createAdapter();
+					(adapter.pickAudio as ReturnType<typeof vi.fn>).mockResolvedValue({
+						url: "https://example.com/audio.mp3",
+					});
 
-			editor = await createEditor(adapter);
-			editor.setData("<p>before</p>");
+					editor = await createEditor(adapter);
 
-			await editor.execute("imagebrowser");
+					await editor.execute("audiobrowser");
 
-			expect(adapter.pickImage).toHaveBeenCalled();
-			expect(editor.getData()).toBe("<p>before</p>");
+					expect(adapter.pickAudio).toHaveBeenCalled();
+					const data = editor.getData();
+					expect(data).toContain("https://example.com/audio.mp3");
+					expect(data).toContain("<audio");
+					expect(data).toContain("controls");
+				});
+			});
 		});
 	});
 

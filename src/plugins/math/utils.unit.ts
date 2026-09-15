@@ -15,8 +15,10 @@ describe("extractDelimiters", () => {
 		expect(extractDelimiters("  \\(x^2\\)  ")).toEqual({ equation: "x^2", display: false });
 	});
 
-	it("falls back to the raw, trimmed text as an inline equation when no delimiters are present", () => {
-		expect(extractDelimiters("  x^2  ")).toEqual({ equation: "x^2", display: false });
+	describe("when no delimiters are present", () => {
+		it("falls back to the raw, trimmed text as an inline equation", () => {
+			expect(extractDelimiters("  x^2  ")).toEqual({ equation: "x^2", display: false });
+		});
 	});
 });
 
@@ -36,31 +38,37 @@ describe("renderEquation", () => {
 		vi.restoreAllMocks();
 	});
 
-	it("delegates to window.katex.render when KaTeX is loaded", () => {
-		const render = vi.fn();
-		(globalThis.window as Window & { katex?: { render: typeof render } }).katex = { render };
-		const element = document.createElement("div");
+	describe("when KaTeX is loaded", () => {
+		it("delegates to window.katex.render", () => {
+			const render = vi.fn();
+			(globalThis.window as Window & { katex?: { render: typeof render } }).katex = { render };
+			const element = document.createElement("div");
 
-		renderEquation("x^2", element, true);
+			renderEquation("x^2", element, true);
 
-		expect(render).toHaveBeenCalledWith("x^2", element, { throwOnError: false, displayMode: true });
+			expect(render).toHaveBeenCalledWith("x^2", element, { throwOnError: false, displayMode: true });
+		});
 	});
 
-	it("falls back to the raw delimited source when KaTeX is not loaded", () => {
-		delete (globalThis.window as Window & { katex?: unknown }).katex;
-		const element = document.createElement("div");
+	describe("when KaTeX is not loaded", () => {
+		it("falls back to the raw delimited source", () => {
+			delete (globalThis.window as Window & { katex?: unknown }).katex;
+			const element = document.createElement("div");
 
-		renderEquation("x^2", element, false);
+			renderEquation("x^2", element, false);
 
-		expect(element.textContent).toBe("\\(x^2\\)");
-	});
+			expect(element.textContent).toBe("\\(x^2\\)");
+		});
 
-	it("falls back with display delimiters when displayMode is true and KaTeX is not loaded", () => {
-		delete (globalThis.window as Window & { katex?: unknown }).katex;
-		const element = document.createElement("div");
+		describe("when displayMode is true", () => {
+			it("falls back with display delimiters", () => {
+				delete (globalThis.window as Window & { katex?: unknown }).katex;
+				const element = document.createElement("div");
 
-		renderEquation("x^2", element, true);
+				renderEquation("x^2", element, true);
 
-		expect(element.textContent).toBe("\\[x^2\\]");
+				expect(element.textContent).toBe("\\[x^2\\]");
+			});
+		});
 	});
 });
