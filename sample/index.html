@@ -1,87 +1,29 @@
-<!DOCTYPE html>
-<html lang="de">
+<!doctype html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>CKEditor5 – Editor preview</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>HPI Schulcloud CKEditor 5 Samples</title>
 		<style>
 			body {
-				max-width: 920px;
-				margin: 20px auto;
+				font-family: system-ui, sans-serif;
+				margin: 2rem auto;
+				max-width: 50rem;
+			}
+			ul {
+				line-height: 1.8;
 			}
 		</style>
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
-		/>
-		<link rel="stylesheet" href="../build/ckeditor.css" />
 	</head>
 	<body>
-		<h1>CKEditor5 – Editor preview</h1>
-
-		<h2>Classic toolbar (de Version)</h2>
-		<div id="classiceditor">Initial <strong>content</strong> of editor</div>
-
-		<h2>Balloon toolbar (en Version)</h2>
-		<div id="ballooneditor">Initial <strong>content</strong> of editor</div>
-
-		<h2>Inline toolbar (en Version)</h2>
-		<div id="inlineeditor">
-			Initial <strong>content</strong> of
-			<mark class="marker-blue">editor</mark>
-		</div>
-
-		<h2>CK content view</h2>
-		<div id="view" class="ck-content">
-			Initial <strong>content</strong> of editor
-		</div>
-
-		<h2>Formula rendering from markup</h2>
-		<div id="formulas">
-			<span class="math-tex">\(x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\)</span>
-		</div>
-
-		<script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"></script>
-		<script src="../build/ckeditor.js"></script>
-		<script src="../build/translations/en.js"></script>
-		<script src="../build/translations/es.js"></script>
-		<script src="../build/translations/uk.js"></script>
-		<script>
-			console.log(
-				"Plugins:",
-				CustomCKEditor.ClassicEditor.builtinPlugins.map(
-					(plugin) => plugin.pluginName
-				)
-			);
-			CustomCKEditor.ClassicEditor.create(
-				document.querySelector("#classiceditor"),
-				{
-					language: "de",
-				}
-			).catch((error) => {
-				console.error(error);
-			});
-
-			CustomCKEditor.BalloonEditor.create(
-				document.querySelector("#ballooneditor"),
-				{
-					language: "en",
-				}
-			).catch((error) => {
-				console.error(error);
-			});
-
-			CustomCKEditor.InlineEditor.create(
-				document.querySelector("#inlineeditor"),
-				{
-					language: "en",
-				}
-			).catch((error) => {
-				console.error(error);
-			});
-
-			const preview = document.getElementById("formulas");
-			renderMathInElement(preview);
-		</script>
+		<h1>HPI Schulcloud CKEditor 5 Samples</h1>
+		<p>
+			The default and legacy editors are shipped as fully separate bundles. Loading both on the same page would
+			duplicate CKEditor 5 core modules and raise a runtime error, so each variant has its own sample page.
+		</p>
+		<ul>
+			<li><a href="./default.html">Default editors (nuxt-client / vue)</a></li>
+			<li><a href="./legacy.html">Legacy editor (schulcloud-client)</a></li>
+		</ul>
 	</body>
 </html>

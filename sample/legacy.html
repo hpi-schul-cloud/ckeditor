@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>HPI Schulcloud CKEditor 5 — Legacy editor</title>
+		<link rel="stylesheet" href="../build/style-legacy.css" />
+		<style>
+			body {
+				font-family: system-ui, sans-serif;
+				margin: 2rem auto;
+				max-width: 50rem;
+			}
+			section {
+				margin-bottom: 3rem;
+			}
+			.controls {
+				display: flex;
+				gap: 0.5rem;
+				margin-bottom: 1rem;
+				align-items: center;
+			}
+			.ck-editor__editable {
+				min-height: 20rem;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>HPI Schulcloud CKEditor — Legacy editor (schulcloud-client)</h1>
+
+		<section>
+			<div class="controls">
+				<label>
+					Language
+					<select id="language">
+						<option value="de">de</option>
+						<option value="en">en</option>
+						<option value="es">es</option>
+						<option value="uk">uk</option>
+					</select>
+				</label>
+				<span id="current"></span>
+			</div>
+			<div id="wrapper">
+				<div id="editor">
+					<p>Hello <strong>bold</strong> and <i>italic</i> world.</p>
+					<ul>
+						<li>A bulleted list item</li>
+					</ul>
+					<p>A formula: <span class="math-tex">\( \sqrt{\frac{a}{b}} \)</span></p>
+				</div>
+			</div>
+		</section>
+
+		<script type="module">
+			import katex from "katex";
+			import "katex/dist/katex.min.css";
+			import { LegacyClassicEditor } from "../build/legacy.js";
+
+			// the math plugin resolves its typesetting engine from the global scope
+			window.katex = katex;
+
+			const element = document.querySelector("#editor");
+			const label = document.querySelector("#current");
+			const languageSelect = document.querySelector("#language");
+
+			async function load() {
+				const language = languageSelect.value;
+				const editor = await LegacyClassicEditor.create({ attachTo: element, language });
+				label.textContent = `active: legacy / ${language}`;
+				window.legacyEditor = editor;
+			}
+
+			languageSelect.addEventListener("change", async () => {
+				if (window.legacyEditor) {
+					const data = window.legacyEditor.getData();
+					await window.legacyEditor.destroy();
+					element.innerHTML = data;
+				}
+				load().catch(console.error);
+			});
+
+			await load();
+		</script>
+	</body>
+</html>
