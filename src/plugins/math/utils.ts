@@ -1,16 +1,21 @@
 export const MODEL_INLINE = "mathtex-inline";
 export const MODEL_DISPLAY = "mathtex-display";
 
+// Anchored to start/end so delimiters elsewhere in the text (or mismatched pairs) don't trigger extraction.
+const DISPLAY_DELIMITERS = /^\\\[(.*)\\\]$/s;
+const INLINE_DELIMITERS = /^\\\((.*)\\\)$/s;
+
 export function extractDelimiters(rawEquation: string): { equation: string; display: boolean } {
 	const trimmed = rawEquation.trim();
-	const hasInlineDelimiters = trimmed.includes("\\(") && trimmed.includes("\\)");
-	const hasDisplayDelimiters = trimmed.includes("\\[") && trimmed.includes("\\]");
 
-	if (hasInlineDelimiters || hasDisplayDelimiters) {
-		return {
-			equation: trimmed.substring(2, trimmed.length - 2).trim(),
-			display: hasDisplayDelimiters,
-		};
+	const displayMatch = trimmed.match(DISPLAY_DELIMITERS);
+	if (displayMatch) {
+		return { equation: displayMatch[1].trim(), display: true };
+	}
+
+	const inlineMatch = trimmed.match(INLINE_DELIMITERS);
+	if (inlineMatch) {
+		return { equation: inlineMatch[1].trim(), display: false };
 	}
 
 	return { equation: trimmed, display: false };

@@ -20,6 +20,52 @@ describe("extractDelimiters", () => {
 			expect(extractDelimiters("  x^2  ")).toEqual({ equation: "x^2", display: false });
 		});
 	});
+
+	describe("when delimiters are not anchored to the start and end", () => {
+		it("does not strip delimiters that only appear in the middle of the text", () => {
+			expect(extractDelimiters("prefix \\(x^2\\) suffix")).toEqual({
+				equation: "prefix \\(x^2\\) suffix",
+				display: false,
+			});
+		});
+
+		it("does not strip a trailing delimiter without a matching opening one", () => {
+			expect(extractDelimiters("x^2\\)")).toEqual({ equation: "x^2\\)", display: false });
+		});
+	});
+
+	describe("when the delimiter types are mismatched", () => {
+		it("does not strip an inline opening delimiter paired with a display closing delimiter", () => {
+			expect(extractDelimiters("\\(x^2\\]")).toEqual({ equation: "\\(x^2\\]", display: false });
+		});
+	});
+
+	describe("when the equation spans multiple lines", () => {
+		it("extracts a multi-line inline equation", () => {
+			expect(extractDelimiters("\\(x^2 +\ny^2\\)")).toEqual({ equation: "x^2 +\ny^2", display: false });
+		});
+
+		it("extracts a multi-line display equation", () => {
+			expect(extractDelimiters("\\[x^2 +\ny^2\\]")).toEqual({ equation: "x^2 +\ny^2", display: true });
+		});
+	});
+
+	describe("when the equation contains nested or repeated escaped delimiters", () => {
+		it("only strips the outermost inline delimiters", () => {
+			expect(extractDelimiters("\\(\\(x^2\\)\\)")).toEqual({ equation: "\\(x^2\\)", display: false });
+		});
+
+		it("only strips the outermost delimiters when multiple equations are concatenated", () => {
+			expect(extractDelimiters("\\(x^2\\) \\(y^2\\)")).toEqual({ equation: "x^2\\) \\(y^2", display: false });
+		});
+
+		it("keeps inline delimiters nested inside a display equation intact", () => {
+			expect(extractDelimiters("\\[x^2 \\(y^2\\) z\\]")).toEqual({
+				equation: "x^2 \\(y^2\\) z",
+				display: true,
+			});
+		});
+	});
 });
 
 describe("addDelimiters", () => {
