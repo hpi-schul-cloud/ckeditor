@@ -79,7 +79,7 @@ Includes all default plugins except `ImageInsertViaUrl` (images are inserted via
 
 ## Consumer configuration
 
-### Math (all editors)
+### Math (all editors) TEST
 
 KaTeX is **not** bundled. The consuming application must provide the engine and its styles:
 
