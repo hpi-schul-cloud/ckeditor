@@ -1,6 +1,6 @@
 {
 	"name": "@hpi-schul-cloud/ckeditor",
-	"version": "3.0.3",
+	"version": "3.0.4",
 	"description": "Custom version of CKEditor5 for the Schulcloud-Verbund-Software-Client",
 	"author": "Dataport Schulcloud-Verbund-Software Team",
 	"repository": {
@@ -44,17 +44,19 @@
 		"sample": "vite --port 4173 --open /sample/index.html"
 	},
 	"dependencies": {
-		"ckeditor5": "48.3.0"
+		"ckeditor5": "48.5.3"
 	},
 	"devDependencies": {
 		"@types/node": "^26.4.1",
-		"@vitest/browser": "^5.0.0",
+		"@vitest/browser": "^5.1.0",
+		"@vitest/mocker": "^5.1.0",
+		"@vitest/ui": "^5.1.0",
 		"jsdom": "^30.0.1",
-		"katex": "^0.16.47",
+		"katex": "^0.19.1",
 		"prettier": "^3.8.3",
 		"typescript": "^6.0.3",
 		"vite": "^8.2.0",
 		"vite-plugin-dts": "^5.1.0",
-		"vitest": "^5.0.0"
+		"vitest": "^5.1.0"
 	}
 }
